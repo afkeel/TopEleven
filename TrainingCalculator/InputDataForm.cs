@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TrainingCalculator
 {
-    public partial class Form1 : Form
+    public partial class InputDataForm : Form
     {
-        public Form1()
+        public InputDataForm()
         {
             InitializeComponent();
         }
