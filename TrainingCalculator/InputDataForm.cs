@@ -16,5 +16,14 @@ namespace TrainingCalculator
         {
             InitializeComponent();
         }
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void aboutAProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dw = new AboutTrainingCalculator();
+            dw.ShowDialog();
+        }
     }
 }
