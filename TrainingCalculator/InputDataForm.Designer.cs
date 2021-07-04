@@ -35,28 +35,28 @@ namespace TrainingCalculator
             this.labelCrossing = new System.Windows.Forms.Label();
             this.labelDribling = new System.Windows.Forms.Label();
             this.labelPassing = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownShooting = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownDribling = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCrossing = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownFinishing = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownPassing = new System.Windows.Forms.NumericUpDown();
             this.panelPsychophysics = new System.Windows.Forms.Panel();
             this.labelCreativity = new System.Windows.Forms.Label();
             this.labelSpeed = new System.Windows.Forms.Label();
             this.labelAggression = new System.Windows.Forms.Label();
             this.labelStrength = new System.Windows.Forms.Label();
             this.labelFitness = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownStrength = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownAggression = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCreativity = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownFitness = new System.Windows.Forms.NumericUpDown();
             this.panelDefence = new System.Windows.Forms.Panel();
             this.labelBravery = new System.Windows.Forms.Label();
             this.labelHeading = new System.Windows.Forms.Label();
             this.labelPositioning = new System.Windows.Forms.Label();
             this.labelMarking = new System.Windows.Forms.Label();
-            this.labelTacklin = new System.Windows.Forms.Label();
+            this.labelTackling = new System.Windows.Forms.Label();
             this.numericUpDownHeading = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownMarking = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownPositioning = new System.Windows.Forms.NumericUpDown();
@@ -64,18 +64,20 @@ namespace TrainingCalculator
             this.numericUpDownTaclin = new System.Windows.Forms.NumericUpDown();
             this.roleBox = new System.Windows.Forms.ComboBox();
             this.playerInfo = new System.Windows.Forms.Label();
+            this.buttonOk = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.panelAttack.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownShooting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDribling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrossing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFinishing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPassing)).BeginInit();
             this.panelPsychophysics.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStrength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAggression)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCreativity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFitness)).BeginInit();
             this.panelDefence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarking)).BeginInit();
@@ -92,11 +94,11 @@ namespace TrainingCalculator
             this.panelAttack.Controls.Add(this.labelCrossing);
             this.panelAttack.Controls.Add(this.labelDribling);
             this.panelAttack.Controls.Add(this.labelPassing);
-            this.panelAttack.Controls.Add(this.numericUpDown1);
-            this.panelAttack.Controls.Add(this.numericUpDown2);
-            this.panelAttack.Controls.Add(this.numericUpDown3);
-            this.panelAttack.Controls.Add(this.numericUpDown4);
-            this.panelAttack.Controls.Add(this.numericUpDown5);
+            this.panelAttack.Controls.Add(this.numericUpDownShooting);
+            this.panelAttack.Controls.Add(this.numericUpDownDribling);
+            this.panelAttack.Controls.Add(this.numericUpDownCrossing);
+            this.panelAttack.Controls.Add(this.numericUpDownFinishing);
+            this.panelAttack.Controls.Add(this.numericUpDownPassing);
             this.panelAttack.Location = new System.Drawing.Point(240, 85);
             this.panelAttack.Name = "panelAttack";
             this.panelAttack.Size = new System.Drawing.Size(200, 130);
@@ -152,40 +154,40 @@ namespace TrainingCalculator
             this.labelPassing.TabIndex = 4;
             this.labelPassing.Text = "Passing";
             // 
-            // numericUpDown1
+            // numericUpDownShooting
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(150, 80);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown1.TabIndex = 4;
+            this.numericUpDownShooting.Location = new System.Drawing.Point(150, 80);
+            this.numericUpDownShooting.Name = "numericUpDownShooting";
+            this.numericUpDownShooting.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownShooting.TabIndex = 9;
             // 
-            // numericUpDown2
+            // numericUpDownDribling
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(150, 28);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown2.TabIndex = 3;
+            this.numericUpDownDribling.Location = new System.Drawing.Point(150, 28);
+            this.numericUpDownDribling.Name = "numericUpDownDribling";
+            this.numericUpDownDribling.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownDribling.TabIndex = 7;
             // 
-            // numericUpDown3
+            // numericUpDownCrossing
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(150, 54);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown3.TabIndex = 2;
+            this.numericUpDownCrossing.Location = new System.Drawing.Point(150, 54);
+            this.numericUpDownCrossing.Name = "numericUpDownCrossing";
+            this.numericUpDownCrossing.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownCrossing.TabIndex = 8;
             // 
-            // numericUpDown4
+            // numericUpDownFinishing
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(150, 106);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown4.TabIndex = 1;
+            this.numericUpDownFinishing.Location = new System.Drawing.Point(150, 106);
+            this.numericUpDownFinishing.Name = "numericUpDownFinishing";
+            this.numericUpDownFinishing.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownFinishing.TabIndex = 10;
             // 
-            // numericUpDown5
+            // numericUpDownPassing
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(150, 3);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown5.TabIndex = 0;
+            this.numericUpDownPassing.Location = new System.Drawing.Point(150, 3);
+            this.numericUpDownPassing.Name = "numericUpDownPassing";
+            this.numericUpDownPassing.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownPassing.TabIndex = 6;
             // 
             // panelPsychophysics
             // 
@@ -195,11 +197,11 @@ namespace TrainingCalculator
             this.panelPsychophysics.Controls.Add(this.labelAggression);
             this.panelPsychophysics.Controls.Add(this.labelStrength);
             this.panelPsychophysics.Controls.Add(this.labelFitness);
-            this.panelPsychophysics.Controls.Add(this.numericUpDown6);
-            this.panelPsychophysics.Controls.Add(this.numericUpDown7);
-            this.panelPsychophysics.Controls.Add(this.numericUpDown8);
-            this.panelPsychophysics.Controls.Add(this.numericUpDown9);
-            this.panelPsychophysics.Controls.Add(this.numericUpDown10);
+            this.panelPsychophysics.Controls.Add(this.numericUpDownSpeed);
+            this.panelPsychophysics.Controls.Add(this.numericUpDownStrength);
+            this.panelPsychophysics.Controls.Add(this.numericUpDownAggression);
+            this.panelPsychophysics.Controls.Add(this.numericUpDownCreativity);
+            this.panelPsychophysics.Controls.Add(this.numericUpDownFitness);
             this.panelPsychophysics.Location = new System.Drawing.Point(465, 85);
             this.panelPsychophysics.Name = "panelPsychophysics";
             this.panelPsychophysics.Size = new System.Drawing.Size(200, 130);
@@ -255,40 +257,40 @@ namespace TrainingCalculator
             this.labelFitness.TabIndex = 4;
             this.labelFitness.Text = "Fitness";
             // 
-            // numericUpDown6
+            // numericUpDownSpeed
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(150, 80);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown6.TabIndex = 4;
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(150, 80);
+            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownSpeed.TabIndex = 14;
             // 
-            // numericUpDown7
+            // numericUpDownStrength
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(150, 28);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown7.TabIndex = 3;
+            this.numericUpDownStrength.Location = new System.Drawing.Point(150, 28);
+            this.numericUpDownStrength.Name = "numericUpDownStrength";
+            this.numericUpDownStrength.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownStrength.TabIndex = 12;
             // 
-            // numericUpDown8
+            // numericUpDownAggression
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(150, 54);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown8.TabIndex = 2;
+            this.numericUpDownAggression.Location = new System.Drawing.Point(150, 54);
+            this.numericUpDownAggression.Name = "numericUpDownAggression";
+            this.numericUpDownAggression.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownAggression.TabIndex = 13;
             // 
-            // numericUpDown9
+            // numericUpDownCreativity
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(150, 106);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown9.TabIndex = 1;
+            this.numericUpDownCreativity.Location = new System.Drawing.Point(150, 106);
+            this.numericUpDownCreativity.Name = "numericUpDownCreativity";
+            this.numericUpDownCreativity.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownCreativity.TabIndex = 15;
             // 
-            // numericUpDown10
+            // numericUpDownFitness
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(150, 3);
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown10.TabIndex = 0;
+            this.numericUpDownFitness.Location = new System.Drawing.Point(150, 3);
+            this.numericUpDownFitness.Name = "numericUpDownFitness";
+            this.numericUpDownFitness.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownFitness.TabIndex = 11;
             // 
             // panelDefence
             // 
@@ -297,7 +299,7 @@ namespace TrainingCalculator
             this.panelDefence.Controls.Add(this.labelHeading);
             this.panelDefence.Controls.Add(this.labelPositioning);
             this.panelDefence.Controls.Add(this.labelMarking);
-            this.panelDefence.Controls.Add(this.labelTacklin);
+            this.panelDefence.Controls.Add(this.labelTackling);
             this.panelDefence.Controls.Add(this.numericUpDownHeading);
             this.panelDefence.Controls.Add(this.numericUpDownMarking);
             this.panelDefence.Controls.Add(this.numericUpDownPositioning);
@@ -348,15 +350,15 @@ namespace TrainingCalculator
             this.labelMarking.TabIndex = 5;
             this.labelMarking.Text = "Marking";
             // 
-            // labelTacklin
+            // labelTackling
             // 
-            this.labelTacklin.AutoSize = true;
-            this.labelTacklin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTacklin.Location = new System.Drawing.Point(17, 10);
-            this.labelTacklin.Name = "labelTacklin";
-            this.labelTacklin.Size = new System.Drawing.Size(53, 15);
-            this.labelTacklin.TabIndex = 4;
-            this.labelTacklin.Text = "Tacklin";
+            this.labelTackling.AutoSize = true;
+            this.labelTackling.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTackling.Location = new System.Drawing.Point(17, 10);
+            this.labelTackling.Name = "labelTackling";
+            this.labelTackling.Size = new System.Drawing.Size(61, 15);
+            this.labelTackling.TabIndex = 4;
+            this.labelTackling.Text = "Tackling";
             // 
             // numericUpDownHeading
             // 
@@ -370,28 +372,28 @@ namespace TrainingCalculator
             this.numericUpDownMarking.Location = new System.Drawing.Point(150, 28);
             this.numericUpDownMarking.Name = "numericUpDownMarking";
             this.numericUpDownMarking.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownMarking.TabIndex = 3;
+            this.numericUpDownMarking.TabIndex = 2;
             // 
             // numericUpDownPositioning
             // 
             this.numericUpDownPositioning.Location = new System.Drawing.Point(150, 54);
             this.numericUpDownPositioning.Name = "numericUpDownPositioning";
             this.numericUpDownPositioning.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownPositioning.TabIndex = 2;
+            this.numericUpDownPositioning.TabIndex = 3;
             // 
             // numericUpDownBravery
             // 
             this.numericUpDownBravery.Location = new System.Drawing.Point(150, 106);
             this.numericUpDownBravery.Name = "numericUpDownBravery";
             this.numericUpDownBravery.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownBravery.TabIndex = 1;
+            this.numericUpDownBravery.TabIndex = 5;
             // 
             // numericUpDownTaclin
             // 
             this.numericUpDownTaclin.Location = new System.Drawing.Point(150, 3);
             this.numericUpDownTaclin.Name = "numericUpDownTaclin";
             this.numericUpDownTaclin.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownTaclin.TabIndex = 0;
+            this.numericUpDownTaclin.TabIndex = 1;
             // 
             // roleBox
             // 
@@ -403,7 +405,7 @@ namespace TrainingCalculator
             this.roleBox.Location = new System.Drawing.Point(15, 37);
             this.roleBox.Name = "roleBox";
             this.roleBox.Size = new System.Drawing.Size(91, 21);
-            this.roleBox.TabIndex = 11;
+            this.roleBox.TabIndex = 0;
             this.roleBox.Text = "Choose a role";
             // 
             // playerInfo
@@ -416,11 +418,34 @@ namespace TrainingCalculator
             this.playerInfo.TabIndex = 10;
             this.playerInfo.Text = "PLAYER INFORMATION";
             // 
+            // buttonOk
+            // 
+            this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonOk.Location = new System.Drawing.Point(508, 270);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(75, 23);
+            this.buttonOk.TabIndex = 16;
+            this.buttonOk.Text = "OK";
+            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(615, 270);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 17;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
             // InputDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 305);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.panelAttack);
             this.Controls.Add(this.panelPsychophysics);
             this.Controls.Add(this.panelDefence);
@@ -431,18 +456,18 @@ namespace TrainingCalculator
             this.Text = "InputData";
             this.panelAttack.ResumeLayout(false);
             this.panelAttack.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownShooting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDribling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrossing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFinishing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPassing)).EndInit();
             this.panelPsychophysics.ResumeLayout(false);
             this.panelPsychophysics.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStrength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAggression)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCreativity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFitness)).EndInit();
             this.panelDefence.ResumeLayout(false);
             this.panelDefence.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeading)).EndInit();
@@ -463,28 +488,28 @@ namespace TrainingCalculator
         private System.Windows.Forms.Label labelCrossing;
         private System.Windows.Forms.Label labelDribling;
         private System.Windows.Forms.Label labelPassing;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numericUpDownShooting;
+        private System.Windows.Forms.NumericUpDown numericUpDownDribling;
+        private System.Windows.Forms.NumericUpDown numericUpDownCrossing;
+        private System.Windows.Forms.NumericUpDown numericUpDownFinishing;
+        private System.Windows.Forms.NumericUpDown numericUpDownPassing;
         private System.Windows.Forms.Panel panelPsychophysics;
         private System.Windows.Forms.Label labelCreativity;
         private System.Windows.Forms.Label labelSpeed;
         private System.Windows.Forms.Label labelAggression;
         private System.Windows.Forms.Label labelStrength;
         private System.Windows.Forms.Label labelFitness;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
+        private System.Windows.Forms.NumericUpDown numericUpDownSpeed;
+        private System.Windows.Forms.NumericUpDown numericUpDownStrength;
+        private System.Windows.Forms.NumericUpDown numericUpDownAggression;
+        private System.Windows.Forms.NumericUpDown numericUpDownCreativity;
+        private System.Windows.Forms.NumericUpDown numericUpDownFitness;
         private System.Windows.Forms.Panel panelDefence;
         private System.Windows.Forms.Label labelBravery;
         private System.Windows.Forms.Label labelHeading;
         private System.Windows.Forms.Label labelPositioning;
         private System.Windows.Forms.Label labelMarking;
-        private System.Windows.Forms.Label labelTacklin;
+        private System.Windows.Forms.Label labelTackling;
         private System.Windows.Forms.NumericUpDown numericUpDownHeading;
         private System.Windows.Forms.NumericUpDown numericUpDownMarking;
         private System.Windows.Forms.NumericUpDown numericUpDownPositioning;
@@ -492,5 +517,7 @@ namespace TrainingCalculator
         private System.Windows.Forms.NumericUpDown numericUpDownTaclin;
         private System.Windows.Forms.ComboBox roleBox;
         private System.Windows.Forms.Label playerInfo;
+        private System.Windows.Forms.Button buttonOk;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

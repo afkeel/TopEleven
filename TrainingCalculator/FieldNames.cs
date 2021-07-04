@@ -8,13 +8,31 @@ namespace TrainingCalculator
 {
     class FieldNames
     {
+        //public enum Attributes
+        //{
+        //    Tackling,
+        //    Marking,
+        //    Positioning,
+        //    Heading,
+        //    Bravery,
+        //    Passing,
+        //    Dribling,
+        //    Crossing,
+        //    Shooting,
+        //    Finishing,
+        //    Fitness,
+        //    Strength,
+        //    Aggression,
+        //    Speed,
+        //    Creativity
+        //}
         private Dictionary<string, string> fieldNames = new Dictionary<string, string>
         {
             ["MainForm"] = "TrainingCalculator",
             ["ButtonInputData"] = "Input Data",
             ["PlayerInfo"] = "PLAYER INFORMATION",
             ["RoleBox"] = "Choose a role",
-            ["LabelTacklin"] = "Tacklin",
+            ["LabelTackling"] = "Tackling",
             ["LabelMarking"] = "Marking",
             ["LabelPositioning"] = "Positioning",
             ["LabelHeading"] = "Heading",
@@ -29,6 +47,8 @@ namespace TrainingCalculator
             ["LabelAggression"] = "Aggression",
             ["LabelSpeed"] = "Speed",
             ["LabelCreativity"] = "Creativity",
+            ["ButtonOk"] = "OK",
+            ["ButtonCancel"] = "Cancel"
         };
         public string this[string i]
         {
