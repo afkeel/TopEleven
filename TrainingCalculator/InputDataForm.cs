@@ -11,63 +11,32 @@ using System.Windows.Forms;
 namespace TrainingCalculator
 {
     public partial class InputDataForm : Form
-    {       
+    {
         private void InitFieldNames()
         {
-            string[] textFieldNames =
-            {
-                "TrainingCalculator",
-                "PLAYER INFORMATION",
-                "Choose a role",
-                "Tacklin",
-                "Marking",
-                "Positioning",
-                "Heading",
-                "Bravery",
-                "Passing",
-                "Dribling",
-                "Crossing",
-                "Shooting",
-                "Finishing",
-                "Fitness",
-                "Strength",
-                "Aggression",
-                "Speed",
-                "Creativity"
-            };
-            int i = 0;
-            Text = textFieldNames[i++];
-            playerInfo.Text = textFieldNames[i++];
-            roleBox.Text = textFieldNames[i++];
-            labelTacklin.Text = textFieldNames[i++];
-            labelMarking.Text = textFieldNames[i++];
-            labelPositioning.Text = textFieldNames[i++];
-            labelHeading.Text = textFieldNames[i++];
-            labelBravery.Text = textFieldNames[i++];
-            labelPassing.Text = textFieldNames[i++];
-            labelDribling.Text = textFieldNames[i++];
-            labelCrossing.Text = textFieldNames[i++];
-            labelShooting.Text = textFieldNames[i++];
-            labelFinishing.Text = textFieldNames[i++];
-            labelFitness.Text = textFieldNames[i++];
-            labelStrength.Text = textFieldNames[i++];
-            labelAggression.Text = textFieldNames[i++];
-            labelSpeed.Text = textFieldNames[i++];
-            labelCreativity.Text = textFieldNames[i++];
+            FieldNames fn = new FieldNames();
+            playerInfo.Text = fn["PlayerInfo"];
+            roleBox.Text = fn["RoleBox"];
+            labelTacklin.Text = fn["LabelTacklin"];
+            labelMarking.Text = fn["LabelMarking"];
+            labelPositioning.Text = fn["LabelPositioning"];
+            labelHeading.Text = fn["LabelHeading"];
+            labelBravery.Text = fn["LabelBravery"];
+            labelPassing.Text = fn["LabelPassing"];
+            labelDribling.Text = fn["LabelDribling"];
+            labelCrossing.Text = fn["LabelCrossing"];
+            labelShooting.Text = fn["LabelShooting"];
+            labelFinishing.Text = fn["LabelFinishing"];
+            labelFitness.Text = fn["LabelFitness"];
+            labelStrength.Text = fn["LabelStrength"];
+            labelAggression.Text = fn["LabelAggression"];
+            labelSpeed.Text = fn["LabelSpeed"];
+            labelCreativity.Text = fn["LabelCreativity"];
         }
         public InputDataForm()
         {
             InitializeComponent();
             InitFieldNames();
-        }
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void aboutAProgramToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var dw = new AboutTrainingCalculator();
-            dw.ShowDialog();
         }
     }
 }

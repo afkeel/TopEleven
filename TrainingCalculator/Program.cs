@@ -16,7 +16,7 @@ namespace TrainingCalculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InputDataForm());
+            Application.Run(new MainForm());
         }
     }
 }

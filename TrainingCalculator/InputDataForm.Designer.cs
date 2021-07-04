@@ -4,14 +4,14 @@ namespace TrainingCalculator
     partial class InputDataForm
     {
         /// <summary>
-        /// Обязательная переменная конструктора.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Освободить все используемые ресурсы.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,33 +21,14 @@ namespace TrainingCalculator
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutAProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.playerInfo = new System.Windows.Forms.Label();
-            this.roleBox = new System.Windows.Forms.ComboBox();
-            this.numericUpDownTaclin = new System.Windows.Forms.NumericUpDown();
-            this.panelDefence = new System.Windows.Forms.Panel();
-            this.numericUpDownBravery = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownPositioning = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownMarking = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownHeading = new System.Windows.Forms.NumericUpDown();
-            this.labelTacklin = new System.Windows.Forms.Label();
-            this.labelMarking = new System.Windows.Forms.Label();
-            this.labelPositioning = new System.Windows.Forms.Label();
-            this.labelHeading = new System.Windows.Forms.Label();
-            this.labelBravery = new System.Windows.Forms.Label();
             this.panelAttack = new System.Windows.Forms.Panel();
             this.labelFinishing = new System.Windows.Forms.Label();
             this.labelShooting = new System.Windows.Forms.Label();
@@ -70,13 +51,19 @@ namespace TrainingCalculator
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaclin)).BeginInit();
-            this.panelDefence.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBravery)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPositioning)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarking)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeading)).BeginInit();
+            this.panelDefence = new System.Windows.Forms.Panel();
+            this.labelBravery = new System.Windows.Forms.Label();
+            this.labelHeading = new System.Windows.Forms.Label();
+            this.labelPositioning = new System.Windows.Forms.Label();
+            this.labelMarking = new System.Windows.Forms.Label();
+            this.labelTacklin = new System.Windows.Forms.Label();
+            this.numericUpDownHeading = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownMarking = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownPositioning = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownBravery = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownTaclin = new System.Windows.Forms.NumericUpDown();
+            this.roleBox = new System.Windows.Forms.ComboBox();
+            this.playerInfo = new System.Windows.Forms.Label();
             this.panelAttack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -89,180 +76,13 @@ namespace TrainingCalculator
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
+            this.panelDefence.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeading)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarking)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPositioning)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBravery)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaclin)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mainToolStripMenuItem,
-            this.aToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // mainToolStripMenuItem
-            // 
-            this.mainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.mainToolStripMenuItem.Text = "Main";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // aToolStripMenuItem
-            // 
-            this.aToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutAProgramToolStripMenuItem});
-            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.aToolStripMenuItem.Text = "Help";
-            // 
-            // aboutAProgramToolStripMenuItem
-            // 
-            this.aboutAProgramToolStripMenuItem.Name = "aboutAProgramToolStripMenuItem";
-            this.aboutAProgramToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutAProgramToolStripMenuItem.Text = "About a program";
-            this.aboutAProgramToolStripMenuItem.Click += new System.EventHandler(this.aboutAProgramToolStripMenuItem_Click);
-            // 
-            // playerInfo
-            // 
-            this.playerInfo.AutoSize = true;
-            this.playerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.playerInfo.Location = new System.Drawing.Point(29, 48);
-            this.playerInfo.Name = "playerInfo";
-            this.playerInfo.Size = new System.Drawing.Size(175, 16);
-            this.playerInfo.TabIndex = 1;
-            this.playerInfo.Text = "PLAYER INFORMATION";
-            // 
-            // roleBox
-            // 
-            this.roleBox.FormattingEnabled = true;
-            this.roleBox.Items.AddRange(new object[] {
-            "ST",
-            "AMC",
-            "AML/AMR"});
-            this.roleBox.Location = new System.Drawing.Point(32, 76);
-            this.roleBox.Name = "roleBox";
-            this.roleBox.Size = new System.Drawing.Size(91, 21);
-            this.roleBox.TabIndex = 2;
-            this.roleBox.Text = "Choose a role";
-            // 
-            // numericUpDownTaclin
-            // 
-            this.numericUpDownTaclin.Location = new System.Drawing.Point(150, 3);
-            this.numericUpDownTaclin.Name = "numericUpDownTaclin";
-            this.numericUpDownTaclin.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownTaclin.TabIndex = 0;
-            // 
-            // panelDefence
-            // 
-            this.panelDefence.BackColor = System.Drawing.Color.LightGreen;
-            this.panelDefence.Controls.Add(this.labelBravery);
-            this.panelDefence.Controls.Add(this.labelHeading);
-            this.panelDefence.Controls.Add(this.labelPositioning);
-            this.panelDefence.Controls.Add(this.labelMarking);
-            this.panelDefence.Controls.Add(this.labelTacklin);
-            this.panelDefence.Controls.Add(this.numericUpDownHeading);
-            this.panelDefence.Controls.Add(this.numericUpDownMarking);
-            this.panelDefence.Controls.Add(this.numericUpDownPositioning);
-            this.panelDefence.Controls.Add(this.numericUpDownBravery);
-            this.panelDefence.Controls.Add(this.numericUpDownTaclin);
-            this.panelDefence.Location = new System.Drawing.Point(32, 124);
-            this.panelDefence.Name = "panelDefence";
-            this.panelDefence.Size = new System.Drawing.Size(200, 130);
-            this.panelDefence.TabIndex = 3;
-            // 
-            // numericUpDownBravery
-            // 
-            this.numericUpDownBravery.Location = new System.Drawing.Point(150, 106);
-            this.numericUpDownBravery.Name = "numericUpDownBravery";
-            this.numericUpDownBravery.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownBravery.TabIndex = 1;
-            // 
-            // numericUpDownPositioning
-            // 
-            this.numericUpDownPositioning.Location = new System.Drawing.Point(150, 54);
-            this.numericUpDownPositioning.Name = "numericUpDownPositioning";
-            this.numericUpDownPositioning.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownPositioning.TabIndex = 2;
-            // 
-            // numericUpDownMarking
-            // 
-            this.numericUpDownMarking.Location = new System.Drawing.Point(150, 28);
-            this.numericUpDownMarking.Name = "numericUpDownMarking";
-            this.numericUpDownMarking.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownMarking.TabIndex = 3;
-            // 
-            // numericUpDownHeading
-            // 
-            this.numericUpDownHeading.Location = new System.Drawing.Point(150, 80);
-            this.numericUpDownHeading.Name = "numericUpDownHeading";
-            this.numericUpDownHeading.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownHeading.TabIndex = 4;
-            // 
-            // labelTacklin
-            // 
-            this.labelTacklin.AutoSize = true;
-            this.labelTacklin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTacklin.Location = new System.Drawing.Point(17, 10);
-            this.labelTacklin.Name = "labelTacklin";
-            this.labelTacklin.Size = new System.Drawing.Size(53, 15);
-            this.labelTacklin.TabIndex = 4;
-            this.labelTacklin.Text = "Tacklin";
-            // 
-            // labelMarking
-            // 
-            this.labelMarking.AutoSize = true;
-            this.labelMarking.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMarking.Location = new System.Drawing.Point(17, 35);
-            this.labelMarking.Name = "labelMarking";
-            this.labelMarking.Size = new System.Drawing.Size(59, 15);
-            this.labelMarking.TabIndex = 5;
-            this.labelMarking.Text = "Marking";
-            // 
-            // labelPositioning
-            // 
-            this.labelPositioning.AutoSize = true;
-            this.labelPositioning.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPositioning.Location = new System.Drawing.Point(17, 61);
-            this.labelPositioning.Name = "labelPositioning";
-            this.labelPositioning.Size = new System.Drawing.Size(79, 15);
-            this.labelPositioning.TabIndex = 6;
-            this.labelPositioning.Text = "Positioning";
-            // 
-            // labelHeading
-            // 
-            this.labelHeading.AutoSize = true;
-            this.labelHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelHeading.Location = new System.Drawing.Point(17, 87);
-            this.labelHeading.Name = "labelHeading";
-            this.labelHeading.Size = new System.Drawing.Size(61, 15);
-            this.labelHeading.TabIndex = 7;
-            this.labelHeading.Text = "Heading";
-            // 
-            // labelBravery
-            // 
-            this.labelBravery.AutoSize = true;
-            this.labelBravery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelBravery.Location = new System.Drawing.Point(16, 111);
-            this.labelBravery.Name = "labelBravery";
-            this.labelBravery.Size = new System.Drawing.Size(54, 15);
-            this.labelBravery.TabIndex = 8;
-            this.labelBravery.Text = "Bravery";
             // 
             // panelAttack
             // 
@@ -277,10 +97,10 @@ namespace TrainingCalculator
             this.panelAttack.Controls.Add(this.numericUpDown3);
             this.panelAttack.Controls.Add(this.numericUpDown4);
             this.panelAttack.Controls.Add(this.numericUpDown5);
-            this.panelAttack.Location = new System.Drawing.Point(257, 124);
+            this.panelAttack.Location = new System.Drawing.Point(240, 85);
             this.panelAttack.Name = "panelAttack";
             this.panelAttack.Size = new System.Drawing.Size(200, 130);
-            this.panelAttack.TabIndex = 9;
+            this.panelAttack.TabIndex = 13;
             // 
             // labelFinishing
             // 
@@ -380,10 +200,10 @@ namespace TrainingCalculator
             this.panelPsychophysics.Controls.Add(this.numericUpDown8);
             this.panelPsychophysics.Controls.Add(this.numericUpDown9);
             this.panelPsychophysics.Controls.Add(this.numericUpDown10);
-            this.panelPsychophysics.Location = new System.Drawing.Point(482, 124);
+            this.panelPsychophysics.Location = new System.Drawing.Point(465, 85);
             this.panelPsychophysics.Name = "panelPsychophysics";
             this.panelPsychophysics.Size = new System.Drawing.Size(200, 130);
-            this.panelPsychophysics.TabIndex = 9;
+            this.panelPsychophysics.TabIndex = 14;
             // 
             // labelCreativity
             // 
@@ -470,29 +290,145 @@ namespace TrainingCalculator
             this.numericUpDown10.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown10.TabIndex = 0;
             // 
+            // panelDefence
+            // 
+            this.panelDefence.BackColor = System.Drawing.Color.LightGreen;
+            this.panelDefence.Controls.Add(this.labelBravery);
+            this.panelDefence.Controls.Add(this.labelHeading);
+            this.panelDefence.Controls.Add(this.labelPositioning);
+            this.panelDefence.Controls.Add(this.labelMarking);
+            this.panelDefence.Controls.Add(this.labelTacklin);
+            this.panelDefence.Controls.Add(this.numericUpDownHeading);
+            this.panelDefence.Controls.Add(this.numericUpDownMarking);
+            this.panelDefence.Controls.Add(this.numericUpDownPositioning);
+            this.panelDefence.Controls.Add(this.numericUpDownBravery);
+            this.panelDefence.Controls.Add(this.numericUpDownTaclin);
+            this.panelDefence.Location = new System.Drawing.Point(15, 85);
+            this.panelDefence.Name = "panelDefence";
+            this.panelDefence.Size = new System.Drawing.Size(200, 130);
+            this.panelDefence.TabIndex = 12;
+            // 
+            // labelBravery
+            // 
+            this.labelBravery.AutoSize = true;
+            this.labelBravery.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelBravery.Location = new System.Drawing.Point(16, 111);
+            this.labelBravery.Name = "labelBravery";
+            this.labelBravery.Size = new System.Drawing.Size(54, 15);
+            this.labelBravery.TabIndex = 8;
+            this.labelBravery.Text = "Bravery";
+            // 
+            // labelHeading
+            // 
+            this.labelHeading.AutoSize = true;
+            this.labelHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelHeading.Location = new System.Drawing.Point(17, 87);
+            this.labelHeading.Name = "labelHeading";
+            this.labelHeading.Size = new System.Drawing.Size(61, 15);
+            this.labelHeading.TabIndex = 7;
+            this.labelHeading.Text = "Heading";
+            // 
+            // labelPositioning
+            // 
+            this.labelPositioning.AutoSize = true;
+            this.labelPositioning.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPositioning.Location = new System.Drawing.Point(17, 61);
+            this.labelPositioning.Name = "labelPositioning";
+            this.labelPositioning.Size = new System.Drawing.Size(79, 15);
+            this.labelPositioning.TabIndex = 6;
+            this.labelPositioning.Text = "Positioning";
+            // 
+            // labelMarking
+            // 
+            this.labelMarking.AutoSize = true;
+            this.labelMarking.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelMarking.Location = new System.Drawing.Point(17, 35);
+            this.labelMarking.Name = "labelMarking";
+            this.labelMarking.Size = new System.Drawing.Size(59, 15);
+            this.labelMarking.TabIndex = 5;
+            this.labelMarking.Text = "Marking";
+            // 
+            // labelTacklin
+            // 
+            this.labelTacklin.AutoSize = true;
+            this.labelTacklin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTacklin.Location = new System.Drawing.Point(17, 10);
+            this.labelTacklin.Name = "labelTacklin";
+            this.labelTacklin.Size = new System.Drawing.Size(53, 15);
+            this.labelTacklin.TabIndex = 4;
+            this.labelTacklin.Text = "Tacklin";
+            // 
+            // numericUpDownHeading
+            // 
+            this.numericUpDownHeading.Location = new System.Drawing.Point(150, 80);
+            this.numericUpDownHeading.Name = "numericUpDownHeading";
+            this.numericUpDownHeading.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownHeading.TabIndex = 4;
+            // 
+            // numericUpDownMarking
+            // 
+            this.numericUpDownMarking.Location = new System.Drawing.Point(150, 28);
+            this.numericUpDownMarking.Name = "numericUpDownMarking";
+            this.numericUpDownMarking.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownMarking.TabIndex = 3;
+            // 
+            // numericUpDownPositioning
+            // 
+            this.numericUpDownPositioning.Location = new System.Drawing.Point(150, 54);
+            this.numericUpDownPositioning.Name = "numericUpDownPositioning";
+            this.numericUpDownPositioning.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownPositioning.TabIndex = 2;
+            // 
+            // numericUpDownBravery
+            // 
+            this.numericUpDownBravery.Location = new System.Drawing.Point(150, 106);
+            this.numericUpDownBravery.Name = "numericUpDownBravery";
+            this.numericUpDownBravery.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownBravery.TabIndex = 1;
+            // 
+            // numericUpDownTaclin
+            // 
+            this.numericUpDownTaclin.Location = new System.Drawing.Point(150, 3);
+            this.numericUpDownTaclin.Name = "numericUpDownTaclin";
+            this.numericUpDownTaclin.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownTaclin.TabIndex = 0;
+            // 
+            // roleBox
+            // 
+            this.roleBox.FormattingEnabled = true;
+            this.roleBox.Items.AddRange(new object[] {
+            "ST",
+            "AMC",
+            "AML/AMR"});
+            this.roleBox.Location = new System.Drawing.Point(15, 37);
+            this.roleBox.Name = "roleBox";
+            this.roleBox.Size = new System.Drawing.Size(91, 21);
+            this.roleBox.TabIndex = 11;
+            this.roleBox.Text = "Choose a role";
+            // 
+            // playerInfo
+            // 
+            this.playerInfo.AutoSize = true;
+            this.playerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.playerInfo.Location = new System.Drawing.Point(12, 9);
+            this.playerInfo.Name = "playerInfo";
+            this.playerInfo.Size = new System.Drawing.Size(175, 16);
+            this.playerInfo.TabIndex = 10;
+            this.playerInfo.Text = "PLAYER INFORMATION";
+            // 
             // InputDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(704, 305);
             this.Controls.Add(this.panelAttack);
             this.Controls.Add(this.panelPsychophysics);
             this.Controls.Add(this.panelDefence);
             this.Controls.Add(this.roleBox);
             this.Controls.Add(this.playerInfo);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "InputDataForm";
-            this.Text = "TrainingCalculator";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaclin)).EndInit();
-            this.panelDefence.ResumeLayout(false);
-            this.panelDefence.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBravery)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPositioning)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarking)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeading)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "InputData";
             this.panelAttack.ResumeLayout(false);
             this.panelAttack.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -507,6 +443,13 @@ namespace TrainingCalculator
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
+            this.panelDefence.ResumeLayout(false);
+            this.panelDefence.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeading)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarking)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPositioning)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBravery)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTaclin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,25 +457,6 @@ namespace TrainingCalculator
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutAProgramToolStripMenuItem;
-        private System.Windows.Forms.Label playerInfo;
-        private System.Windows.Forms.ComboBox roleBox;
-        private System.Windows.Forms.NumericUpDown numericUpDownTaclin;
-        private System.Windows.Forms.Panel panelDefence;
-        private System.Windows.Forms.NumericUpDown numericUpDownHeading;
-        private System.Windows.Forms.NumericUpDown numericUpDownMarking;
-        private System.Windows.Forms.NumericUpDown numericUpDownPositioning;
-        private System.Windows.Forms.NumericUpDown numericUpDownBravery;
-        private System.Windows.Forms.Label labelBravery;
-        private System.Windows.Forms.Label labelHeading;
-        private System.Windows.Forms.Label labelPositioning;
-        private System.Windows.Forms.Label labelMarking;
-        private System.Windows.Forms.Label labelTacklin;
         private System.Windows.Forms.Panel panelAttack;
         private System.Windows.Forms.Label labelFinishing;
         private System.Windows.Forms.Label labelShooting;
@@ -555,6 +479,18 @@ namespace TrainingCalculator
         private System.Windows.Forms.NumericUpDown numericUpDown8;
         private System.Windows.Forms.NumericUpDown numericUpDown9;
         private System.Windows.Forms.NumericUpDown numericUpDown10;
+        private System.Windows.Forms.Panel panelDefence;
+        private System.Windows.Forms.Label labelBravery;
+        private System.Windows.Forms.Label labelHeading;
+        private System.Windows.Forms.Label labelPositioning;
+        private System.Windows.Forms.Label labelMarking;
+        private System.Windows.Forms.Label labelTacklin;
+        private System.Windows.Forms.NumericUpDown numericUpDownHeading;
+        private System.Windows.Forms.NumericUpDown numericUpDownMarking;
+        private System.Windows.Forms.NumericUpDown numericUpDownPositioning;
+        private System.Windows.Forms.NumericUpDown numericUpDownBravery;
+        private System.Windows.Forms.NumericUpDown numericUpDownTaclin;
+        private System.Windows.Forms.ComboBox roleBox;
+        private System.Windows.Forms.Label playerInfo;
     }
 }
-
