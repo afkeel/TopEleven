@@ -35,12 +35,16 @@ namespace TrainingCalculator
             int[] PASS_GO_AND_SHOOT = { (int)FNAttr.Passing, (int)FNAttr.Shooting, (int)FNAttr.Speed };
             int[] FAST_COUNTER_ATTACKS = { (int)FNAttr.Passing, (int)FNAttr.Crossing, (int)FNAttr.Finishing, (int)FNAttr.Creativity };
             int[] SKILL_DRILL = { (int)FNAttr.Heading, (int)FNAttr.Dribling, (int)FNAttr.Creativity };
+            int[] SHOOTING_TECHNIQUE = { (int)FNAttr.Shooting, (int)FNAttr.Finishing, (int)FNAttr.Strength };
+            int[] SET_PIECE_DELIVERY = { (int)FNAttr.Marking, (int)FNAttr.Heading, (int)FNAttr.Crossing, (int)FNAttr.Shooting };
            
             Dictionary<int, int[]> training = new Dictionary<int, int[]>
             {
                 [0] = PASS_GO_AND_SHOOT,
                 [1] = FAST_COUNTER_ATTACKS,
-                [2] = SKILL_DRILL
+                [2] = SKILL_DRILL,
+                [3] = SHOOTING_TECHNIQUE,
+                [4] = SET_PIECE_DELIVERY
             };
 
             int lenTrain = training.Count();
@@ -57,9 +61,14 @@ namespace TrainingCalculator
             }
             for (int ii = 0; ii < lenTrain; ii++)
             {
-                int sum;
-                int count;
-                do
+                int sum = 0;
+                int count = 0;
+                for (int iii = 0; iii < lenAttr; iii++)
+                {   
+                    sum += (int)Attributes[iii].ValueAttribute;
+                    ++count;                   
+                }                
+                while (sum + count <= count * 180 && CheackMaxVal(ref maskAtr, ref indexTraining))
                 {
                     sum = 0;
                     count = 0;
@@ -78,8 +87,9 @@ namespace TrainingCalculator
                             sum += (int)Attributes[jj].ValueAttribute;
                             ++count;
                         }
-                    }                   
-                } while (sum+count <= count * 180 && CheackMaxVal(ref maskAtr, ref indexTraining));
+                    }           
+                }         
+
                 ++indexTraining;
             }           
         }
