@@ -11,8 +11,7 @@ using System.Windows.Forms;
 namespace TrainingCalculator
 {   
     public partial class MainForm : Form
-    {
-        Dictionary<string, decimal> attributes = new Dictionary<string, decimal>();
+    {          
         private void InitFieldNames()
         {
             FieldNames fn = new FieldNames();
@@ -30,7 +29,8 @@ namespace TrainingCalculator
             idf.ShowDialog();
             if (idf.DialogResult == DialogResult.OK)
             {
-                attributes = idf.attr;
+                CalculationAttributes calc = new CalculationAttributes(idf.attr);
+                calc.Calculation();                              
             }
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
