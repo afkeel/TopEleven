@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingCalculator
 {
-    public class PlayerAttribute
+    public class PlayerAttribute : ICloneable
     {
         public enum Color
         {
@@ -19,6 +19,10 @@ namespace TrainingCalculator
         {
             ColorAttribute = col;
             ValueAttribute = val;
+        }
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

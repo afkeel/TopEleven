@@ -30,7 +30,11 @@ namespace TrainingCalculator
             if (idf.DialogResult == DialogResult.OK)
             {
                 CalculationAttributes calc = new CalculationAttributes(idf.attr);
-                calc.Calculation();                              
+                //for (int i = 0; i < 20000; i++)
+                //{
+                //    ++progressBar1.Value;
+                //}
+                calc.Calculation();          
             }
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

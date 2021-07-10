@@ -36,6 +36,7 @@ namespace TrainingCalculator
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonInputData = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,11 +97,19 @@ namespace TrainingCalculator
             this.buttonInputData.UseVisualStyleBackColor = true;
             this.buttonInputData.Click += new System.EventHandler(this.buttonInputData_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(95, 167);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 23);
+            this.progressBar1.TabIndex = 2;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.buttonInputData);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -122,6 +131,7 @@ namespace TrainingCalculator
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutAProgramToolStripMenuItem;
         private System.Windows.Forms.Button buttonInputData;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
