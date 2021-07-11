@@ -7,25 +7,7 @@ using System.Threading.Tasks;
 namespace TrainingCalculator
 {
     class FieldNames
-    {
-        public enum Attributes
-        {
-            Tackling,
-            Marking,
-            Positioning,
-            Heading,
-            Bravery,
-            Passing,
-            Dribling,
-            Crossing,
-            Shooting,
-            Finishing,
-            Fitness,
-            Strength,
-            Aggression,
-            Speed,
-            Creativity
-        }
+    {       
         private Dictionary<string, string> fieldNames = new Dictionary<string, string>
         {
             ["MainForm"] = "TrainingCalculator",

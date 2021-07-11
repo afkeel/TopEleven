@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace TrainingCalculator
 {
+    using PA = PlayerAttribute;
     public partial class InputDataForm : Form
     {
-        //public Dictionary<string, decimal> attr = new Dictionary<string, decimal>();
-        public List<PlayerAttribute> attr = new List<PlayerAttribute>();
+        public List<PA> attr = new List<PA>();
         private void InitFieldNames()
         {
             FieldNames fn = new FieldNames();
@@ -45,59 +45,23 @@ namespace TrainingCalculator
         }
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            //attr.Add("Tackling", numericUpDownTaclin.Value);
-            //attr.Add("Marking", numericUpDownMarking.Value);
-            //attr.Add("Positioning", numericUpDownPositioning.Value);
-            //attr.Add("Heading", numericUpDownHeading.Value);
-            //attr.Add("Bravery", numericUpDownBravery.Value);
+            attr.Add(new PA(PA.Attributes.Tackling, PA.Color.GRAY, 20));
+            attr.Add(new PA(PA.Attributes.Marking,PA.Color.GRAY, 20));
+            attr.Add(new PA(PA.Attributes.Positioning,PA.Color.WHITE, 60));
+            attr.Add(new PA(PA.Attributes.Heading,PA.Color.WHITE, 60));
+            attr.Add(new PA(PA.Attributes.Bravery,PA.Color.GRAY, 20));
 
-            //attr.Add("Passing", numericUpDownPassing.Value);
-            //attr.Add("Dribling", numericUpDownDribling.Value);
-            //attr.Add("Crossing", numericUpDownCrossing.Value);
-            //attr.Add("Shooting", numericUpDownShooting.Value);
-            //attr.Add("Finishing", numericUpDownFinishing.Value);
+            attr.Add(new PA(PA.Attributes.Passing,PA.Color.WHITE, 60));
+            attr.Add(new PA(PA.Attributes.Dribling,PA.Color.WHITE, 60));
+            attr.Add(new PA(PA.Attributes.Crossing, PA.Color.GRAY, 20));
+            attr.Add(new PA(PA.Attributes.Shooting,PA.Color.WHITE, 60));
+            attr.Add(new PA(PA.Attributes.Finishing,PA.Color.WHITE, 60));
 
-            //attr.Add("Fitness", numericUpDownFitness.Value);
-            //attr.Add("Strength", numericUpDownStrength.Value);
-            //attr.Add("Aggression", numericUpDownAggression.Value);
-            //attr.Add("Speed", numericUpDownSpeed.Value);
-            //attr.Add("Creativity", numericUpDownCreativity.Value);
-
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownTaclin.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, (double)numericUpDownMarking.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownPositioning.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownHeading.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, (double)numericUpDownBravery.Value));
-
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownPassing.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownDribling.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, (double)numericUpDownCrossing.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownShooting.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownFinishing.Value));
-
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, (double)numericUpDownFitness.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownStrength.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, (double)numericUpDownAggression.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownSpeed.Value));
-            //attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, (double)numericUpDownCreativity.Value));
-
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, 20));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, 20));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, 20));
-
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, 20));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
-
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, 20));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.GRAY, 20));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
-            attr.Add(new PlayerAttribute(PlayerAttribute.Color.WHITE, 60));
+            attr.Add(new PA(PA.Attributes.Fitness,PA.Color.GRAY, 20));
+            attr.Add(new PA(PA.Attributes.Strength,PA.Color.WHITE, 60));
+            attr.Add(new PA(PA.Attributes.Aggression,PA.Color.GRAY, 20));
+            attr.Add(new PA(PA.Attributes.Speed,PA.Color.WHITE, 60));
+            attr.Add(new PA(PA.Attributes.Creativity,PA.Color.WHITE, 60));
         }
     }
 }
