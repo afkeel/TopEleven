@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TrainingCalculator
 {
     using PAAttr = PlayerAttribute.Attributes;
-    class CalculationAttributes
+    class CalculationAttributes : Form
     {
         static PAAttr[] PASS_GO_AND_SHOOT = { PAAttr.Passing, PAAttr.Shooting, PAAttr.Speed };
         static PAAttr[] FAST_COUNTER_ATTACKS = { PAAttr.Passing, PAAttr.Crossing, PAAttr.Finishing, PAAttr.Creativity };
@@ -123,14 +125,7 @@ namespace TrainingCalculator
             //    }
             //}
             array = list;
-        }
-        private BigInteger FactNaive(int n)
-        {
-            BigInteger r = 1;
-            for (int i = 2; i <= n; ++i)
-                r *= i;
-            return r;
-        }
+        }       
         private void FillMaskAttr(bool[,] mask, List<Drill> list)
         {
             //we combine the attributes of the player with drill in a mask, 
@@ -186,7 +181,10 @@ namespace TrainingCalculator
             List<bool[,]> maskAttrItog = new List<bool[,]>();
             int next = 0;
 
-            BigInteger countIterationsListDrill = FactNaive(lenListDrill);
+            СalcFactorial cf = new СalcFactorial();
+            BigInteger countIterationsListDrill = cf.Calculate(lenListDrill);
+            
+            Stopwatch stopWatchCalcAttr = Stopwatch.StartNew();
             for (BigInteger i = 0; i < countIterationsListDrill; i++)
             {
                 List<PlayerAttribute> tempAttributes = new List<PlayerAttribute>(lenListAttr);
@@ -252,6 +250,8 @@ namespace TrainingCalculator
                     ++next;
                 }               
             }
+            stopWatchCalcAttr.Stop();
+            //MessageBox.Show(stopWatchCalcAttr.Elapsed.ToString());
 
             Dictionary<int, ArrayList > newTraining = new Dictionary<int, ArrayList>(); 
             for (int i = 0; i < maskAttrItog.Count; i++)
