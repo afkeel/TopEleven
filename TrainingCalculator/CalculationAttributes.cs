@@ -124,7 +124,7 @@ namespace TrainingCalculator
             //}
             array = list;
         }
-        static BigInteger FactNaive(int n)
+        private BigInteger FactNaive(int n)
         {
             BigInteger r = 1;
             for (int i = 2; i <= n; ++i)
@@ -186,7 +186,8 @@ namespace TrainingCalculator
             List<bool[,]> maskAttrItog = new List<bool[,]>();
             int next = 0;
 
-            for (int i = 0; i < 40320; i++)
+            BigInteger countIterationsListDrill = FactNaive(lenListDrill);
+            for (BigInteger i = 0; i < countIterationsListDrill; i++)
             {
                 List<PlayerAttribute> tempAttributes = new List<PlayerAttribute>(lenListAttr);
                 ListAttributes.ForEach((item) =>
