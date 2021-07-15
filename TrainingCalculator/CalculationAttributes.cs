@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace TrainingCalculator
 {
     using PAAttr = PlayerAttribute.Attributes;
-    class CalculationAttributes : Form
+    public class CalculationAttributes : Form
     {
         static PAAttr[] PASS_GO_AND_SHOOT = { PAAttr.Passing, PAAttr.Shooting, PAAttr.Speed };
         static PAAttr[] FAST_COUNTER_ATTACKS = { PAAttr.Passing, PAAttr.Crossing, PAAttr.Finishing, PAAttr.Creativity };
@@ -41,6 +41,7 @@ namespace TrainingCalculator
 
         private const int maxValueAttribute = 180;
         private const int maxGrayAttrVal = 60;
+        public CalculationAttributes(){ }
         public CalculationAttributes(List<PlayerAttribute> attr)
         {
             ListAttributes = attr;
@@ -136,24 +137,6 @@ namespace TrainingCalculator
             });
             return list.Count > 0;
         }        
-        //private void Foo1(List<PlayerAttribute> tempListAttributes, bool[] maskAttr,
-        //    out double sumAttr, out int countAttr)
-        //{
-        //    sumAttr = 0;
-        //    countAttr = 0;
-        //    for (int i = 0; i < tempListAttributes.Count; i++)
-        //    {
-        //        if (maskAttr[i])
-        //        {
-        //            sumAttr += tempListAttributes[i].ValueAttribute;
-        //            ++countAttr;
-        //            if (tempListAttributes[i].ColorAttribute == PlayerAttribute.Color.GRAY)
-        //            {
-        //                //mas.Add(tempListAttributes[i].ValueAttribute);
-        //            }
-        //        }
-        //    }
-        //}
         private double CalcSumAttr(List<PlayerAttribute> arrPA)
         {
             double sumAttr = 0;
@@ -170,33 +153,23 @@ namespace TrainingCalculator
         private void FillArrPA(List<PlayerAttribute> tempListAttributes, Drill drill,
             List<PlayerAttribute> arrPA)
         {
-            //sumAttr = 0;
-            //countAttr = 0;
             for (int i = 0; i < tempListAttributes.Count; i++)
             {
                 if (CmpAttributeName(tempListAttributes[i].AttributeName, drill.DrillAttributes))
                 {
                     arrPA.Add(tempListAttributes[i]);
-                    //sumAttr += tempListAttributes[i].ValueAttribute;
-                    //++countAttr;
-                    //if (tempListAttributes[i].ColorAttribute == PlayerAttribute.Color.GRAY)
-                    //{
-                    //    //mas.Add(tempListAttributes[i].ValueAttribute);
-                    //}
                 }
             }
         }      
-        private void IncreasePlayerAttribute(List<PlayerAttribute> tempListAttributes, List<Drill> listDrill)
+        public void IncreasePlayerAttribute(List<PlayerAttribute> tempListAttributes, List<Drill> listDrill)
         {
             for (int i = 0; i < listDrill.Count; i++)
             {
                 List<PlayerAttribute> listPA = new List<PlayerAttribute>();
                 FillArrPA(tempListAttributes, listDrill[i], listPA);
-                //Foo1(out double sumAttr, out int countAttr);
-                bool findGray = FindGrayAttr(listPA, out List<PlayerAttribute> listGrayAttr);
                 int countAttr = listPA.Count;
                 while (CalcSumAttr(listPA) + countAttr <= countAttr * maxValueAttribute
-                    && (!findGray || CheackMaxVal(listGrayAttr)))
+                    && (!FindGrayAttr(listPA, out List<PlayerAttribute> listGrayAttr) || CheackMaxVal(listGrayAttr)))
                 {
                     foreach (var item in listPA)
                     {
@@ -209,32 +182,10 @@ namespace TrainingCalculator
                             item.ValueAttribute += 0.5;
                         } 
                     }
-
-                    //for (int j = 0; j < tempListAttributes.Count; j++)
-                    //{
-                    //    if (CmpAttributeName(tempListAttributes[j].AttributeName, listDrill[i].DrillAttributes))
-                    //    {
-                            
-                    //        sumAttr += tempListAttributes[j].ValueAttribute;
-                    //        ++countAttr;
-                    //    }
-                    //}
                 }
             }
         }
-        private void FillMaskAttr(bool[][] mask, List<Drill> list)
-        {
-            //we combine the attributes of the player with drill in a mask, 
-            //which we will then use to pump the attribute values
-            for (int i = 0; i < list.Count; i++)
-            {
-                for (int j = 0; j < list[i].DrillAttributes.Length; j++)
-                {
-                    mask[i][(int)list[i].DrillAttributes[j]] = true;
-                }
-            }
-        }
-        private void MakeTrainingProgram(List<Drill> listDrill)
+        public void MakeTrainingProgram(List<Drill> listDrill)
         {
             listDrill.Add(new Drill("PASS_GO_AND_SHOOT", PASS_GO_AND_SHOOT));
             listDrill.Add(new Drill("FAST_COUNTER_ATTACKS", FAST_COUNTER_ATTACKS));
@@ -266,24 +217,16 @@ namespace TrainingCalculator
         {
             List<Drill> listDrill = new List<Drill>();
             MakeTrainingProgram(listDrill);
-
             int lenListDrill = listDrill.Count();
             int lenListAttr = ListAttributes.Count();
-            //bool[][] maskAttr = new bool[lenListDrill][];
-            //for (int i = 0; i < lenListDrill; i++)
-            //{
-            //    maskAttr[i] = new bool[lenListAttr];
-            //}
-            //FillMaskAttr(maskAttr, listDrill);
-                     
-            double[] maxAttr = new double[lenListAttr];           
-            List<double> itog = new List<double>();
-            List<bool[,]> maskAttrItog = new List<bool[,]>();
-            int next = 0;
-
             СalcFactorial cf = new СalcFactorial();
             BigInteger countIterationsListDrill = cf.Calculate(lenListDrill);
             
+            //double[] maxAttr = new double[lenListAttr];
+            //List<double> itog = new List<double>();
+            //List<bool[,]> maskAttrItog = new List<bool[,]>();
+            //int next = 0;
+
             Stopwatch stopWatchCalcAttr = Stopwatch.StartNew();
             for (BigInteger i = 0; i < countIterationsListDrill; i++)
             {
@@ -293,7 +236,6 @@ namespace TrainingCalculator
                     tempListAttributes.Add((PlayerAttribute)item.Clone());
                 });
                 IncreasePlayerAttribute(tempListAttributes, listDrill);
-
 
 
                 //if (CmpAttr(tempListAttributes, maxAttr))
@@ -319,36 +261,36 @@ namespace TrainingCalculator
             stopWatchCalcAttr.Stop();
             //MessageBox.Show(stopWatchCalcAttr.Elapsed.ToString());
 
-            Dictionary<int, ArrayList > newTraining = new Dictionary<int, ArrayList>(); 
-            for (int i = 0; i < maskAttrItog.Count; i++)
-            {
-                ArrayList list = new ArrayList();
-                bool[,] temp = maskAttrItog[i];
-                for (int j = 0; j < 8; j++)
-                {
-                    List < int > arr= new List<int>();
-                    //int[] arr = new int[5];
-                    //int x = 0;
-                    for (int k = 0; k < 15; k++)
-                    {                     
-                        if (temp[j, k])
-                        {
-                            arr.Add(k);
-                            //arr[x++] = k;
-                        }  
-                    }
-                    list.Add(arr.ToArray());
-                }
-                newTraining[i] = list;
-            }
+            //Dictionary<int, ArrayList > newTraining = new Dictionary<int, ArrayList>(); 
+            //for (int i = 0; i < maskAttrItog.Count; i++)
+            //{
+            //    ArrayList list = new ArrayList();
+            //    bool[,] temp = maskAttrItog[i];
+            //    for (int j = 0; j < 8; j++)
+            //    {
+            //        List < int > arr= new List<int>();
+            //        //int[] arr = new int[5];
+            //        //int x = 0;
+            //        for (int k = 0; k < 15; k++)
+            //        {                     
+            //            if (temp[j, k])
+            //            {
+            //                arr.Add(k);
+            //                //arr[x++] = k;
+            //            }  
+            //        }
+            //        list.Add(arr.ToArray());
+            //    }
+            //    newTraining[i] = list;
+            //}
 
-            Dictionary<int, List<string>> newTrain = new Dictionary<int, List<string>>();
-            List<string> array = new List<string>();
-            for (int i = 0; i < newTraining.Count; i++)
-            {
-               GetTrainingName(newTraining[i],out array);
-                newTrain[i] = array;
-            }
+            //Dictionary<int, List<string>> newTrain = new Dictionary<int, List<string>>();
+            //List<string> array = new List<string>();
+            //for (int i = 0; i < newTraining.Count; i++)
+            //{
+            //   GetTrainingName(newTraining[i],out array);
+            //    newTrain[i] = array;
+            //}
 
         }
     }

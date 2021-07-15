@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TrainingCalculator
 {
     using PAAttr = PlayerAttribute.Attributes;
-    class Drill
+    public class Drill
     {
         public string DrillName { get; set; }
         public PAAttr[] DrillAttributes { get; set; }
