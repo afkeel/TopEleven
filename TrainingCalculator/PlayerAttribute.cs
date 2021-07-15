@@ -42,9 +42,8 @@ namespace TrainingCalculator
         }
         public object Clone()
         {
-            return this.MemberwiseClone();
+            return MemberwiseClone();
         }
-
         public static explicit operator int(PlayerAttribute v)
         {
             throw new NotImplementedException();

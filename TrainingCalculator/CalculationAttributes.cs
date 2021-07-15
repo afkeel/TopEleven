@@ -38,6 +38,9 @@ namespace TrainingCalculator
         static PAAttr[] GYM = { PAAttr.Fitness, PAAttr.Strength };
         static PAAttr[] SHUTTLE_RUNS = { PAAttr.Bravery, PAAttr.Strength, PAAttr.Speed };
         static PAAttr[] HURDLE_JUMPS = { PAAttr.Bravery, PAAttr.Aggression, PAAttr.Speed };
+
+        private const int maxValueAttribute = 180;
+        private const int maxGrayAttrVal = 60;
         public CalculationAttributes(List<PlayerAttribute> attr)
         {
             ListAttributes = attr;
@@ -60,22 +63,7 @@ namespace TrainingCalculator
             }
             return ret;
         }
-        private bool CheackMaxVal(ref List<PlayerAttribute> tempAttributes, ref bool[,] maskAtr, ref int index)
-        {
-            int max = 60;
-            bool ret = true;
-            for (int i = 0; i < tempAttributes.Count; i++)
-            {
-                if (tempAttributes[i].ColorAttribute == PlayerAttribute.Color.GRAY
-                    && maskAtr[index,i]
-                    && tempAttributes[i].ValueAttribute >= max)
-                {
-                    ret = false;
-                    break;
-                }                    
-            }
-            return ret;
-        }
+        
         private void Swap(ref bool[,] mask, ref int next)
         {
             for (int i = 0; i < 15; i++)
@@ -125,8 +113,116 @@ namespace TrainingCalculator
             //    }
             //}
             array = list;
-        }       
-        private void FillMaskAttr(bool[,] mask, List<Drill> list)
+        }
+        private bool CheackMaxVal(List<PlayerAttribute> listGrayAttr)
+        {
+            PlayerAttribute res = listGrayAttr.Find(
+                delegate (PlayerAttribute pa)
+                {
+                    return pa.ValueAttribute >= maxGrayAttrVal;
+                });
+            return res == null;
+        }
+        private bool FindGrayAttr(List<PlayerAttribute> attr, out List<PlayerAttribute> list)
+        {
+            //attr.Add(new PlayerAttribute(PAAttr.Bravery, PlayerAttribute.Color.GRAY, 20));
+            //attr.Add(new PlayerAttribute(PAAttr.Heading, PlayerAttribute.Color.GRAY, 20));
+            //attr.Add(new PlayerAttribute(PAAttr.Marking, PlayerAttribute.Color.GRAY, 60));
+            //attr.Add(new PlayerAttribute(PAAttr.Tackling, PlayerAttribute.Color.GRAY, 20));
+            list = attr.FindAll(
+            delegate (PlayerAttribute pa)
+            {
+                return pa.ColorAttribute == PlayerAttribute.Color.GRAY;
+            });
+            return list.Count > 0;
+        }        
+        //private void Foo1(List<PlayerAttribute> tempListAttributes, bool[] maskAttr,
+        //    out double sumAttr, out int countAttr)
+        //{
+        //    sumAttr = 0;
+        //    countAttr = 0;
+        //    for (int i = 0; i < tempListAttributes.Count; i++)
+        //    {
+        //        if (maskAttr[i])
+        //        {
+        //            sumAttr += tempListAttributes[i].ValueAttribute;
+        //            ++countAttr;
+        //            if (tempListAttributes[i].ColorAttribute == PlayerAttribute.Color.GRAY)
+        //            {
+        //                //mas.Add(tempListAttributes[i].ValueAttribute);
+        //            }
+        //        }
+        //    }
+        //}
+        private double CalcSumAttr(List<PlayerAttribute> arrPA)
+        {
+            double sumAttr = 0;
+            for (int i = 0; i < arrPA.Count; i++)
+            {
+                sumAttr += arrPA[i].ValueAttribute;
+            }
+            return sumAttr;
+        }
+        private bool CmpAttributeName(PAAttr item, PAAttr[] array)
+        {
+            return array.Contains(item);
+        }
+        private void FillArrPA(List<PlayerAttribute> tempListAttributes, Drill drill,
+            List<PlayerAttribute> arrPA)
+        {
+            //sumAttr = 0;
+            //countAttr = 0;
+            for (int i = 0; i < tempListAttributes.Count; i++)
+            {
+                if (CmpAttributeName(tempListAttributes[i].AttributeName, drill.DrillAttributes))
+                {
+                    arrPA.Add(tempListAttributes[i]);
+                    //sumAttr += tempListAttributes[i].ValueAttribute;
+                    //++countAttr;
+                    //if (tempListAttributes[i].ColorAttribute == PlayerAttribute.Color.GRAY)
+                    //{
+                    //    //mas.Add(tempListAttributes[i].ValueAttribute);
+                    //}
+                }
+            }
+        }      
+        private void IncreasePlayerAttribute(List<PlayerAttribute> tempListAttributes, List<Drill> listDrill)
+        {
+            for (int i = 0; i < listDrill.Count; i++)
+            {
+                List<PlayerAttribute> listPA = new List<PlayerAttribute>();
+                FillArrPA(tempListAttributes, listDrill[i], listPA);
+                //Foo1(out double sumAttr, out int countAttr);
+                bool findGray = FindGrayAttr(listPA, out List<PlayerAttribute> listGrayAttr);
+                int countAttr = listPA.Count;
+                while (CalcSumAttr(listPA) + countAttr <= countAttr * maxValueAttribute
+                    && (!findGray || CheackMaxVal(listGrayAttr)))
+                {
+                    foreach (var item in listPA)
+                    {
+                        if (item.ColorAttribute == PlayerAttribute.Color.WHITE)
+                        {
+                            ++item.ValueAttribute;
+                        }
+                        else
+                        {
+                            item.ValueAttribute += 0.5;
+                        } 
+                    }
+
+                    //for (int j = 0; j < tempListAttributes.Count; j++)
+                    //{
+                    //    if (CmpAttributeName(tempListAttributes[j].AttributeName, listDrill[i].DrillAttributes))
+                    //    {
+                            
+                    //        sumAttr += tempListAttributes[j].ValueAttribute;
+                    //        ++countAttr;
+                    //    }
+                    //}
+                }
+            }
+        }
+        private void FillMaskAttr(bool[][] mask, List<Drill> list)
         {
             //we combine the attributes of the player with drill in a mask, 
             //which we will then use to pump the attribute values
@@ -134,7 +230,7 @@ namespace TrainingCalculator
             {
                 for (int j = 0; j < list[i].DrillAttributes.Length; j++)
                 {
-                    mask[i, (int)list[i].DrillAttributes[j]] = true;
+                    mask[i][(int)list[i].DrillAttributes[j]] = true;
                 }
             }
         }
@@ -173,8 +269,12 @@ namespace TrainingCalculator
 
             int lenListDrill = listDrill.Count();
             int lenListAttr = ListAttributes.Count();
-            bool[,] maskAttr = new bool[lenListDrill, lenListAttr];          
-            FillMaskAttr(maskAttr, listDrill);
+            //bool[][] maskAttr = new bool[lenListDrill][];
+            //for (int i = 0; i < lenListDrill; i++)
+            //{
+            //    maskAttr[i] = new bool[lenListAttr];
+            //}
+            //FillMaskAttr(maskAttr, listDrill);
                      
             double[] maxAttr = new double[lenListAttr];           
             List<double> itog = new List<double>();
@@ -187,68 +287,34 @@ namespace TrainingCalculator
             Stopwatch stopWatchCalcAttr = Stopwatch.StartNew();
             for (BigInteger i = 0; i < countIterationsListDrill; i++)
             {
-                List<PlayerAttribute> tempAttributes = new List<PlayerAttribute>(lenListAttr);
+                List<PlayerAttribute> tempListAttributes = new List<PlayerAttribute>(lenListAttr);
                 ListAttributes.ForEach((item) =>
                 {
-                    tempAttributes.Add((PlayerAttribute)item.Clone());
+                    tempListAttributes.Add((PlayerAttribute)item.Clone());
                 });
-
-                int indexTraining = 0;
-                for (int ii = 0; ii < lenListDrill; ii++)
-                {
-                    double sum = 0;
-                    int count = 0;
-                    for (int iii = 0; iii < lenListAttr; iii++)
-                    {
-                        if (maskAttr[ii, iii])
-                        {
-                            sum += tempAttributes[iii].ValueAttribute;
-                            ++count;
-                        }
-                    }
-                    while (sum + count <= count * 180 && CheackMaxVal(ref tempAttributes, ref maskAttr, ref indexTraining))
-                    {
-                        sum = 0;
-                        count = 0;
-                        for (int jj = 0; jj < lenListAttr; jj++)
-                        {
-                            if (maskAttr[ii, jj])
-                            {
-                                if (tempAttributes[jj].ColorAttribute == PlayerAttribute.Color.WHITE)
-                                {
-                                    ++tempAttributes[jj].ValueAttribute;
-                                }
-                                else
-                                {
-                                    tempAttributes[jj].ValueAttribute += 0.5;
-                                }
-                                sum += (int)tempAttributes[jj].ValueAttribute;
-                                ++count;
-                            }
-                        }
-                    }
-                    ++indexTraining;
-                }
-
-                if (CmpAttr(tempAttributes, maxAttr))
-                {
-                    foreach (var item in tempAttributes)
-                    {
-                        itog.Add(item.ValueAttribute);
-                    }
-                    maskAttrItog.Add((bool[,])maskAttr.Clone()); 
-                }
+                IncreasePlayerAttribute(tempListAttributes, listDrill);
 
 
-                Swap(ref maskAttr, ref next);
-                if (next >= lenListDrill - 2)
-                {
-                    next = 0;
-                }
-                else
-                {
-                    ++next;
-                }               
+
+                //if (CmpAttr(tempListAttributes, maxAttr))
+                //{
+                //    foreach (var item in tempListAttributes)
+                //    {
+                //        itog.Add(item.ValueAttribute);
+                //    }
+                //    maskAttrItog.Add((bool[,])maskAttr.Clone()); 
+                //}
+
+
+                //Swap(ref maskAttr, ref next);
+                //if (next >= lenListDrill - 2)
+                //{
+                //    next = 0;
+                //}
+                //else
+                //{
+                //    ++next;
+                //}               
             }
             stopWatchCalcAttr.Stop();
             //MessageBox.Show(stopWatchCalcAttr.Elapsed.ToString());
