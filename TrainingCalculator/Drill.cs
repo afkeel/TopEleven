@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TrainingCalculator
 {
     using PAAttr = PlayerAttribute.Attributes;
-    public class Drill
+    public class Drill : ICloneable
     {
         public string DrillName { get; set; }
         public PAAttr[] DrillAttributes { get; set; }
@@ -15,6 +15,10 @@ namespace TrainingCalculator
         {
             DrillName = name;
             DrillAttributes = attr;
+        }
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }
