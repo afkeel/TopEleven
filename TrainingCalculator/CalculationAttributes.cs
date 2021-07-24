@@ -11,89 +11,79 @@ using System.Windows.Forms;
 namespace TrainingCalculator
 {
     using PAAttr = PlayerAttribute.Attributes;
-    public class CalculationAttributes : Form
+    //public class CalculationAttributesEventArgs : EventArgs
+    //{
+    //    public BigInteger CountIterations { get; set; }
+    //}
+    public class CalculationAttributes
     {
-        static PAAttr[] PASS_GO_AND_SHOOT = { PAAttr.Passing, PAAttr.Shooting, PAAttr.Speed };
-        static PAAttr[] FAST_COUNTER_ATTACKS = { PAAttr.Passing, PAAttr.Crossing, PAAttr.Finishing, PAAttr.Creativity };
-        static PAAttr[] SKILL_DRILL = { PAAttr.Heading, PAAttr.Dribling, PAAttr.Creativity };
-        static PAAttr[] SHOOTING_TECHNIQUE = { PAAttr.Shooting, PAAttr.Finishing, PAAttr.Strength };
-        //static PAAttr[] SET_PIECE_DELIVERY = { PAAttr.Marking, PAAttr.Heading, PAAttr.Crossing, PAAttr.Shooting };
-        //static PAAttr[] SLALOM_DRIBBLE = { PAAttr.Passing, PAAttr.Dribling, PAAttr.Fitness, PAAttr.Speed };
-        //static PAAttr[] WING_PLAY = { PAAttr.Heading, PAAttr.Crossing, PAAttr.Shooting, PAAttr.Finishing };
-        //static PAAttr[] ONE_ON_ONE_FINISHING = { PAAttr.Tackling, PAAttr.Dribling, PAAttr.Finishing };
+        //public static event EventHandler ProgressBarValChanged;
+        //public static event EventHandler ProgressBarMax;
 
-        static PAAttr[] PRESS_THE_PLAY = { PAAttr.Tackling, PAAttr.Marking, PAAttr.Positioning, PAAttr.Bravery, PAAttr.Aggression };
-        static PAAttr[] PIGGY_IN_THE_MIDDLE = { PAAttr.Tackling, PAAttr.Positioning, PAAttr.Passing, PAAttr.Fitness, PAAttr.Aggression };
-        static PAAttr[] USE_YOUR_HEAD = { PAAttr.Positioning, PAAttr.Heading, PAAttr.Passing, PAAttr.Creativity };
-        static PAAttr[] STOP_THE_ATTACKER = { PAAttr.Tackling, PAAttr.Marking, PAAttr.Bravery, PAAttr.Dribling, PAAttr.Strength };
-        static PAAttr[] DEFENDING_CROSSES = { PAAttr.Marking, PAAttr.Heading, PAAttr.Bravery, PAAttr.Crossing };
-        static PAAttr[] VIDEO_ANALYSIS = { PAAttr.Positioning, PAAttr.Bravery, PAAttr.Creativity };
-        static PAAttr[] HOLD_THE_LINE = { PAAttr.Marking, PAAttr.Positioning };
+        PAAttr[] PASS_GO_AND_SHOOT = { PAAttr.Passing, PAAttr.Shooting, PAAttr.Speed };
+        PAAttr[] FAST_COUNTER_ATTACKS = { PAAttr.Passing, PAAttr.Crossing, PAAttr.Finishing, PAAttr.Creativity };
+        PAAttr[] SKILL_DRILL = { PAAttr.Heading, PAAttr.Dribling, PAAttr.Creativity };
+        PAAttr[] SHOOTING_TECHNIQUE = { PAAttr.Shooting, PAAttr.Finishing, PAAttr.Strength };
+        PAAttr[] SET_PIECE_DELIVERY = { PAAttr.Marking, PAAttr.Heading, PAAttr.Crossing, PAAttr.Shooting };
+        PAAttr[] SLALOM_DRIBBLE = { PAAttr.Passing, PAAttr.Dribling, PAAttr.Fitness, PAAttr.Speed };
+        PAAttr[] WING_PLAY = { PAAttr.Heading, PAAttr.Crossing, PAAttr.Shooting, PAAttr.Finishing };
+        PAAttr[] ONE_ON_ONE_FINISHING = { PAAttr.Tackling, PAAttr.Dribling, PAAttr.Finishing };
 
-        static PAAttr[] WARM_UP = { PAAttr.Heading, PAAttr.Fitness, PAAttr.Aggression };
-        static PAAttr[] STRETCH = { PAAttr.Fitness, PAAttr.Strength, PAAttr.Speed };
-        static PAAttr[] SPRINT = { PAAttr.Dribling, PAAttr.Fitness, PAAttr.Speed };
-        static PAAttr[] CARIOCA_WITH_LADDERS = { PAAttr.Aggression, PAAttr.Speed };
-        static PAAttr[] LONG_RUN = { PAAttr.Fitness, PAAttr.Speed };
-        static PAAttr[] GYM = { PAAttr.Fitness, PAAttr.Strength };
-        static PAAttr[] SHUTTLE_RUNS = { PAAttr.Bravery, PAAttr.Strength, PAAttr.Speed };
-        static PAAttr[] HURDLE_JUMPS = { PAAttr.Bravery, PAAttr.Aggression, PAAttr.Speed };
+        PAAttr[] PRESS_THE_PLAY = { PAAttr.Tackling, PAAttr.Marking, PAAttr.Positioning, PAAttr.Bravery, PAAttr.Aggression };
+        PAAttr[] PIGGY_IN_THE_MIDDLE = { PAAttr.Tackling, PAAttr.Positioning, PAAttr.Passing, PAAttr.Fitness, PAAttr.Aggression };
+        PAAttr[] USE_YOUR_HEAD = { PAAttr.Positioning, PAAttr.Heading, PAAttr.Passing, PAAttr.Creativity };
+        PAAttr[] STOP_THE_ATTACKER = { PAAttr.Tackling, PAAttr.Marking, PAAttr.Bravery, PAAttr.Dribling, PAAttr.Strength };
+        PAAttr[] DEFENDING_CROSSES = { PAAttr.Marking, PAAttr.Heading, PAAttr.Bravery, PAAttr.Crossing };
+        PAAttr[] VIDEO_ANALYSIS = { PAAttr.Positioning, PAAttr.Bravery, PAAttr.Creativity };
+        PAAttr[] HOLD_THE_LINE = { PAAttr.Marking, PAAttr.Positioning };
 
-        private const int maxValueAttribute = 180;
-        private const int maxGrayAttrVal = 60;
-        public CalculationAttributes(){ }
+        PAAttr[] WARM_UP = { PAAttr.Heading, PAAttr.Fitness, PAAttr.Aggression };
+        PAAttr[] STRETCH = { PAAttr.Fitness, PAAttr.Strength, PAAttr.Speed };
+        PAAttr[] SPRINT = { PAAttr.Dribling, PAAttr.Fitness, PAAttr.Speed };
+        PAAttr[] CARIOCA_WITH_LADDERS = { PAAttr.Aggression, PAAttr.Speed };
+        PAAttr[] LONG_RUN = { PAAttr.Fitness, PAAttr.Speed };
+        PAAttr[] GYM = { PAAttr.Fitness, PAAttr.Strength };
+        PAAttr[] SHUTTLE_RUNS = { PAAttr.Bravery, PAAttr.Strength, PAAttr.Speed };
+        PAAttr[] HURDLE_JUMPS = { PAAttr.Bravery, PAAttr.Aggression, PAAttr.Speed };
+
+        const int maxValueAttribute = 180;
+        const int maxGrayAttrVal = 60;      
+        public CalculationAttributes(){}
         public CalculationAttributes(List<PlayerAttribute> attr)
         {
             ListAttributes = attr;
         }
         public List<PlayerAttribute> ListAttributes { get; }
-        
-        private void GetTrainingName(ArrayList mas,out List<string> array)
-        {
-            List<string> list = new List<string>();
-            //for (int i = 0; i < mas.Count; i++)
-            //{
-            //    if (dr.PASS_GO_AND_SHOOT.SequenceEqual((int[])mas[i]))
-            //    {
-            //        list.Add( "PASS_GO_AND_SHOOT");
-            //    }
-            //    else if (FAST_COUNTER_ATTACKS.SequenceEqual((int[])mas[i]))
-            //    {
-            //        list.Add( "FAST_COUNTER_ATTACKS");
-            //    }
-            //    else if (SKILL_DRILL.SequenceEqual((int[])mas[i]))
-            //    {
-            //        list.Add( "SKILL_DRILL");
-            //    }
-            //    else if (SHOOTING_TECHNIQUE.SequenceEqual((int[])mas[i]))
-            //    {
-            //        list.Add( "SHOOTING_TECHNIQUE");
-            //    }
-            //    else if (SET_PIECE_DELIVERY.SequenceEqual((int[])mas[i]))
-            //    {
-            //        list.Add( "SET_PIECE_DELIVERY");
-            //    }
-            //    else if (SLALOM_DRIBBLE.SequenceEqual((int[])mas[i]))
-            //    {
-            //        list.Add( "SLALOM_DRIBBLE");
-            //    }
-            //    else if (WING_PLAY.SequenceEqual((int[])mas[i]))
-            //    {
-            //        list.Add( "WING_PLAY");
-            //    } 
-            //    else if (ONE_ON_ONE_FINISHING.SequenceEqual((int[])mas[i]))
-            //    {
-            //        list.Add( "ONE_ON_ONE_FINISHING");
-            //    }
-            //}
-            array = list;
-        }
-        public void SwapDrill(List<Drill> list, int i)
+        public double[] maxAttrs = new double[15];
+        public List<List<Drill>> maxAttrsDrill = new List<List<Drill>>();
+        public List<List<PlayerAttribute>> maxAttrsList = new List<List<PlayerAttribute>>();
+        public List<List<PlayerAttribute>> tempListAttributes = new List<List<PlayerAttribute>>();
+        private void Swap(List<Drill> list, int i , int j)
         {
             Drill temp;
             temp = list[i];
-            list[i] = list[i + 1];
-            list[i + 1] = temp;
+            list[i] = list[j];
+            list[j] = temp;
+        }
+        ////// Permutations without repetitions //////
+        public int SwapDrill(List<Drill> list, int n)
+        {            
+            //The task of generating permutations in lexicographic order. 
+            //In this case, all permutations are sorted first by the first number, then by the second, etc.in ascending order. 
+            //Thus, the first one will be the permutation 1 2... N, and the last one will be N N-1... 1.
+            int i = n - 2;
+            while (list[i].DrillIndex >= list[i+1].DrillIndex) 
+                i--;
+            int j = n - 1;
+            while (list[i].DrillIndex >= list[j].DrillIndex) 
+                j--;
+            Swap(list, i, j);
+            int l = i + 1;
+            int r = n - 1;
+            int count = r - l;
+            if (count>0)
+                list.Reverse(l, count+1);
+            return i;
         }
         private bool CmpMaxAttrsList(List<PlayerAttribute> listAttributes, double[] maxAttr)
         {
@@ -120,10 +110,6 @@ namespace TrainingCalculator
         }
         private bool FindGrayAttr(List<PlayerAttribute> attr, out List<PlayerAttribute> list)
         {
-            //attr.Add(new PlayerAttribute(PAAttr.Bravery, PlayerAttribute.Color.GRAY, 20));
-            //attr.Add(new PlayerAttribute(PAAttr.Heading, PlayerAttribute.Color.GRAY, 20));
-            //attr.Add(new PlayerAttribute(PAAttr.Marking, PlayerAttribute.Color.GRAY, 60));
-            //attr.Add(new PlayerAttribute(PAAttr.Tackling, PlayerAttribute.Color.GRAY, 20));
             list = attr.FindAll(
             delegate (PlayerAttribute pa)
             {
@@ -155,12 +141,17 @@ namespace TrainingCalculator
                 }
             }
         }      
-        public void IncreasePlayerAttribute(List<PlayerAttribute> tempListAttributes, List<Drill> listDrill)
+        public void IncreasePlayerAttribute(List<PlayerAttribute> tempList, List<Drill> listDrill, ref int index)
         {
+            ListAttributes.ForEach((item) =>
+            {
+                tempList.Add((PlayerAttribute)item.Clone());
+            });           
+            tempListAttributes.Add(tempList.ConvertAll(attr => (PlayerAttribute)attr.Clone()));
             for (int i = 0; i < listDrill.Count; i++)
             {
                 List<PlayerAttribute> listPA = new List<PlayerAttribute>();
-                FillArrPA(tempListAttributes, listDrill[i], listPA);
+                FillArrPA(tempList, listDrill[i], listPA);
                 int countAttr = listPA.Count;
                 while (CalcSumAttr(listPA) + countAttr <= countAttr * maxValueAttribute
                     && (!FindGrayAttr(listPA, out List<PlayerAttribute> listGrayAttr) || CheackMaxVal(listGrayAttr)))
@@ -177,106 +168,115 @@ namespace TrainingCalculator
                         } 
                     }
                 }
+                tempListAttributes.Add(tempList.ConvertAll(attr => (PlayerAttribute)attr.Clone()));               
+            }
+            if (CmpMaxAttrsList(tempList, maxAttrs))
+            {
+                maxAttrsList.Add(tempList.ConvertAll(attr => (PlayerAttribute)attr.Clone()));
+                maxAttrsDrill.Add(listDrill.ConvertAll(drill => (Drill)drill.Clone()));
+            }
+            int ind = SwapDrill(listDrill, listDrill.Count);
+            if (index > ind)
+                index = ind;
+        }
+        public void IncreasePlayerAttribute(List<PlayerAttribute> tempList, List<Drill> listDrill, int index)
+        {           
+            for (int i = index; i < listDrill.Count; i++)
+            {
+                List<PlayerAttribute> listPA = new List<PlayerAttribute>();
+                FillArrPA(tempList, listDrill[i], listPA);
+                int countAttr = listPA.Count;
+                while (CalcSumAttr(listPA) + countAttr <= countAttr * maxValueAttribute
+                    && (!FindGrayAttr(listPA, out List<PlayerAttribute> listGrayAttr) || CheackMaxVal(listGrayAttr)))
+                {
+                    foreach (var item in listPA)
+                    {
+                        if (item.ColorAttribute == PlayerAttribute.Color.WHITE)
+                        {
+                            ++item.ValueAttribute;
+                        }
+                        else
+                        {
+                            item.ValueAttribute += 0.5;
+                        }
+                    }
+                }
             }
         }
-        public void MakeTrainingProgram(List<Drill> listDrill)
+        public void MakeTrainingProgram(out List<Drill> listDrill)
         {
-            listDrill.Add(new Drill("PASS_GO_AND_SHOOT", PASS_GO_AND_SHOOT));
-            listDrill.Add(new Drill("FAST_COUNTER_ATTACKS", FAST_COUNTER_ATTACKS));
-            listDrill.Add(new Drill("SKILL_DRILL", SKILL_DRILL));
-            listDrill.Add(new Drill("SHOOTING_TECHNIQUE", SHOOTING_TECHNIQUE));
-            //listDrill.Add(new Drill("SET_PIECE_DELIVERY", SET_PIECE_DELIVERY));
-            //listDrill.Add(new Drill("SLALOM_DRIBBLE", SLALOM_DRIBBLE));
-            //listDrill.Add(new Drill("WING_PLAY", WING_PLAY));
-            //listDrill.Add(new Drill("ONE_ON_ONE_FINISHING", ONE_ON_ONE_FINISHING));
-
-            //training.Add(8, PRESS_THE_PLAY);
-            //training.Add(9, PIGGY_IN_THE_MIDDLE);
-            //training.Add(10, USE_YOUR_HEAD);
-            //training.Add(11, STOP_THE_ATTACKER);
-            //training.Add(12, DEFENDING_CROSSES);
-            //training.Add(13, VIDEO_ANALYSIS);
-            //training.Add(14, HOLD_THE_LINE);
-
-            //training.Add(15, WARM_UP);
-            //training.Add(16, STRETCH);
-            //training.Add(17, SPRINT);
-            //training.Add(18, CARIOCA_WITH_LADDERS);
-            //training.Add(19, LONG_RUN);
-            //training.Add(20, GYM);
-            //training.Add(21, SHUTTLE_RUNS);
-            //training.Add(22, HURDLE_JUMPS);
+            List<Drill> list = new List<Drill>
+            {
+                new Drill(1, "PASS_GO_AND_SHOOT", PASS_GO_AND_SHOOT),
+                new Drill(2, "FAST_COUNTER_ATTACKS", FAST_COUNTER_ATTACKS),
+                new Drill(3, "SKILL_DRILL", SKILL_DRILL),
+                new Drill(4, "SHOOTING_TECHNIQUE", SHOOTING_TECHNIQUE),
+                new Drill(5, "SET_PIECE_DELIVERY", SET_PIECE_DELIVERY),
+                new Drill(6, "SLALOM_DRIBBLE", SLALOM_DRIBBLE),
+                new Drill(7, "WING_PLAY", WING_PLAY),
+                new Drill(8, "ONE_ON_ONE_FINISHING", ONE_ON_ONE_FINISHING),
+               
+                //new Drill(9, "PRESS_THE_PLAY", PRESS_THE_PLAY),
+                //new Drill(10, "PIGGY_IN_THE_MIDDLE", PIGGY_IN_THE_MIDDLE),
+                //new Drill(11, "USE_YOUR_HEAD", USE_YOUR_HEAD),
+                //new Drill(12, "STOP_THE_ATTACKER", STOP_THE_ATTACKER),
+                //new Drill(13, "DEFENDING_CROSSES", DEFENDING_CROSSES),
+                //new Drill(14, "VIDEO_ANALYSIS", VIDEO_ANALYSIS),
+                //new Drill(15, "HOLD_THE_LINE", HOLD_THE_LINE),
+                
+                //new Drill(16, "WARM_UP", WARM_UP),
+                //new Drill(17, "STRETCH", STRETCH),
+                //new Drill(18, "SPRINT", SPRINT),
+                //new Drill(19, "CARIOCA_WITH_LADDERS", CARIOCA_WITH_LADDERS),
+                //new Drill(20, "LONG_RUN", LONG_RUN),
+                //new Drill(21, "GYM", GYM),
+                //new Drill(22, "SHUTTLE_RUNS", SHUTTLE_RUNS),
+                //new Drill(23, "HURDLE_JUMPS", HURDLE_JUMPS)
+            };
+            listDrill = list;          
         }
         public void Calculation()
         {
-            List<Drill> listDrill = new List<Drill>();
-            MakeTrainingProgram(listDrill);
+            MakeTrainingProgram(out List<Drill> listDrill);
             int lenListDrill = listDrill.Count();
             int lenListAttr = ListAttributes.Count();
+            //The number of permutations for N different elements is N!
             СalcFactorial cf = new СalcFactorial();
-            BigInteger countIterationsListDrill = cf.Calculate(lenListDrill);
-
-            double[] maxAttrs = new double[lenListAttr];
-            List<List<Drill>> maxAttrsDrill = new List<List<Drill>>();
-            List<List<PlayerAttribute>> maxAttrsList = new List<List<PlayerAttribute>>();
-
-            int index = 0;
-
+            BigInteger countIterationsListDrill = cf.Calculate(lenListDrill)-1;
+            //CalculationAttributesEventArgs e = new CalculationAttributesEventArgs
+            //{
+            //    CountIterations = countIterationsListDrill
+            //};
+            //ProgressBarMax?.Invoke(this, e);
+            int index = lenListDrill;
+            //Since the permutations go from the bottom up, 
+            //there is no need to increase data by a new one before the permutation.
+            //Let's fill in the data array for each training session 
+            //and start from the place where the permutation was.
+            List<PlayerAttribute> tempList = new List<PlayerAttribute>();
+            IncreasePlayerAttribute(tempList, listDrill, ref index);
+            BigInteger count = countIterationsListDrill - 1;
             Stopwatch stopWatchCalcAttr = Stopwatch.StartNew();
-            for (BigInteger i = 0; i < countIterationsListDrill; i++)
+            for (BigInteger i = 0; i < count; i++)            
             {
-                List<PlayerAttribute> tempListAttributes = new List<PlayerAttribute>(lenListAttr);
-                ListAttributes.ForEach((item) =>
+                tempList.Clear();
+                tempListAttributes[index].ForEach((item) =>
                 {
-                    tempListAttributes.Add((PlayerAttribute)item.Clone());
+                    tempList.Add((PlayerAttribute)item.Clone());
                 });
-                IncreasePlayerAttribute(tempListAttributes, listDrill);
-
-                if (CmpMaxAttrsList(tempListAttributes, maxAttrs))
-                {                   
-                    maxAttrsList.Add(tempListAttributes);
-                    Converter<Drill, Drill> conv = drill => (Drill)drill.Clone();
-                    maxAttrsDrill.Add(listDrill.ConvertAll(conv));
+                IncreasePlayerAttribute(tempList, listDrill, index);
+                if (CmpMaxAttrsList(tempList, maxAttrs))
+                {
+                    maxAttrsList.Add(tempList.ConvertAll(attr => (PlayerAttribute)attr.Clone()));
+                    maxAttrsDrill.Add(listDrill.ConvertAll(drill => (Drill)drill.Clone()));
                 }
-
-                SwapDrill(listDrill, index++);
-                if (index >= lenListDrill - 1)
-                    index = 0;
+                int ind = SwapDrill(listDrill, lenListDrill);
+                if (index > ind)
+                    index = ind;
+                //ProgressBarValChanged?.Invoke(this, EventArgs.Empty);               
             }
             stopWatchCalcAttr.Stop();
             MessageBox.Show(stopWatchCalcAttr.Elapsed.ToString());
-
-            //Dictionary<int, ArrayList > newTraining = new Dictionary<int, ArrayList>(); 
-            //for (int i = 0; i < maskAttrItog.Count; i++)
-            //{
-            //    ArrayList list = new ArrayList();
-            //    bool[,] temp = maskAttrItog[i];
-            //    for (int j = 0; j < 8; j++)
-            //    {
-            //        List < int > arr= new List<int>();
-            //        //int[] arr = new int[5];
-            //        //int x = 0;
-            //        for (int k = 0; k < 15; k++)
-            //        {                     
-            //            if (temp[j, k])
-            //            {
-            //                arr.Add(k);
-            //                //arr[x++] = k;
-            //            }  
-            //        }
-            //        list.Add(arr.ToArray());
-            //    }
-            //    newTraining[i] = list;
-            //}
-
-            //Dictionary<int, List<string>> newTrain = new Dictionary<int, List<string>>();
-            //List<string> array = new List<string>();
-            //for (int i = 0; i < newTraining.Count; i++)
-            //{
-            //   GetTrainingName(newTraining[i],out array);
-            //    newTrain[i] = array;
-            //}
-
         }
     }
 }
