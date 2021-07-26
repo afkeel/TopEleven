@@ -61,16 +61,15 @@ namespace RooterTests
                 new Drill(6, "SLALOM_DRIBBLE", SLALOM_DRIBBLE),
                 new Drill(7, "WING_PLAY", WING_PLAY),
                 new Drill(8, "ONE_ON_ONE_FINISHING", ONE_ON_ONE_FINISHING)
-            };
-            int index = listDrill.Count;
+            };           
             //Since the permutations go from the bottom up, 
             //there is no need to increase data by a new one before the permutation.
             //Let's fill in the data array for each training session 
             //and start from the place where the permutation was.
-            List<PA> tempList = new List<PA>();
-            testClass.IncreasePlayerAttribute(tempList, listDrill, ref index);
-            for (int i = 0; i < tempList.Count; i++)
-                Assert.AreEqual(expectedList[i], tempList[i].ValueAttribute);
+            List<List <PA>> list = new List<List<PA>>();
+            testClass.IncreasePlayerAttribute(list, listDrill);
+            for (int i = 0; i < expectedList.Count; i++)
+                Assert.AreEqual(expectedList[i], list[listDrill.Count][i].ValueAttribute);
 
             expectedList.Clear();
             expectedList.AddRange(new double[]
@@ -91,8 +90,8 @@ namespace RooterTests
                 new Drill(5, "SET_PIECE_DELIVERY", SET_PIECE_DELIVERY),
                 new Drill(6, "SLALOM_DRIBBLE", SLALOM_DRIBBLE)
             });
-            index = 0;
-            tempList = startAttr;
+            int index = 0;
+            List<PA> tempList = new List<PA>(startAttr);
             testClass.IncreasePlayerAttribute(tempList, listDrill, index);
             for (int i = 0; i < tempList.Count; i++)
                 Assert.AreEqual(expectedList[i], tempList[i].ValueAttribute);
@@ -126,9 +125,10 @@ namespace RooterTests
             СalcFactorial cf = new СalcFactorial();
             BigInteger bi = cf.Calculate(listActual.Count)-1;
             int n = listActual.Count;
+            int index = 0;
             for (int i = 0; i < bi; i++)
             {
-                testClass.SwapDrill(listActual, n);
+                testClass.SwapDrill(listActual, n, ref index);
             }
             for (int i = 0; i < n; i++)
             {
