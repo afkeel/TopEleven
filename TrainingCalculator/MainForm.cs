@@ -27,14 +27,14 @@ namespace TrainingCalculator
         {
             InitializeComponent();
             InitFieldNames();
-            CalculationAttributes.ProgressBarMax += (sender, args) => Invoke((Action)delegate ()
-            {
-                progressBar1.Maximum = (int)((CalculationAttributesEventArgs)args).CountIterations;
-            });
-            CalculationAttributes.ProgressBarValChanged += (sender, args) => Invoke((Action)delegate ()
-            {
-                progressBar1.Value += 1;
-            });
+            //CalculationAttributes.ProgressBarMax += (sender, args) => Invoke((Action)delegate ()
+            //{
+            //    progressBar1.Maximum = (int)((CalculationAttributesEventArgs)args).CountIterations;
+            //});
+            //CalculationAttributes.ProgressBarValChanged += (sender, args) => Invoke((Action)delegate ()
+            //{
+            //    progressBar1.Value += 1;
+            //});
         }
         private void DisplayResulTtaskCalculation(CalculationAttributes c)
         {
@@ -69,18 +69,20 @@ namespace TrainingCalculator
                 drillListView.Items.Clear();
                 foreach (var item in ResultCalculationAttributes.MaxAttrsDrill[n])
                 {
-                    drillListView.Items.Add(item.DrillName);
+                    ListViewItem lvi = new ListViewItem(item.DrillName);
+                    lvi.SubItems.Add(item.MaxAverageDrillQuality.ToString());
+                    drillListView.Items.Add(lvi);
                 }
-                listView1.Columns.Clear();
+                maxAttributesListView.Columns.Clear();
                 foreach (var item in ResultCalculationAttributes.MaxAttrs)
                 {
-                    listView1.Columns.Add(item.ToString(), 40, HorizontalAlignment.Center);
+                    maxAttributesListView.Columns.Add(item.ToString(), 40, HorizontalAlignment.Center);
                 }
                 attributesListView.Columns.Clear();
                 foreach (var item in ResultCalculationAttributes.MaxAttrsList[n])
                 {
                     attributesListView.Columns.Add(item.ValueAttribute.ToString(), 40, HorizontalAlignment.Center);
-                }
+                }                
             }
             else
             {
@@ -96,6 +98,24 @@ namespace TrainingCalculator
         {
             var dw = new AboutTrainingCalculator();
             dw.ShowDialog();
-        }        
+        }
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            double sum = 0;
+            int c = ResultCalculationAttributes.MaxAttrsDrill.Count;
+            double[] itog = new double[c];
+            for (int i = 0; i < c; i++)
+            {
+                sum = 0;
+                foreach (var item in ResultCalculationAttributes.MaxAttrsDrill[i])
+                {
+                    sum += item.MaxAverageDrillQuality;
+                }
+                itog[i] = sum;
+            }
+            var orderedNumbers = from i in itog
+                                 orderby i
+                                 select i;
+        }
     }
 }

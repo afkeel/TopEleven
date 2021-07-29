@@ -29,6 +29,12 @@ namespace TrainingCalculator
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Aasfsdgsdg",
+            "180"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Adsafgsgh",
+            "150"}, -1);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -51,7 +57,7 @@ namespace TrainingCalculator
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.maxAttributesListView = new System.Windows.Forms.ListView();
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,6 +69,9 @@ namespace TrainingCalculator
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonSort = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +82,7 @@ namespace TrainingCalculator
             this.aToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(884, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(958, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,7 +124,7 @@ namespace TrainingCalculator
             // 
             // buttonInputData
             // 
-            this.buttonInputData.Location = new System.Drawing.Point(12, 27);
+            this.buttonInputData.Location = new System.Drawing.Point(59, 43);
             this.buttonInputData.Name = "buttonInputData";
             this.buttonInputData.Size = new System.Drawing.Size(75, 23);
             this.buttonInputData.TabIndex = 1;
@@ -125,17 +134,17 @@ namespace TrainingCalculator
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(162, 414);
+            this.progressBar1.Location = new System.Drawing.Point(209, 414);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(600, 23);
+            this.progressBar1.Size = new System.Drawing.Size(630, 23);
             this.progressBar1.TabIndex = 2;
             // 
             // maxAttrsDrillListBox
             // 
             this.maxAttrsDrillListBox.FormattingEnabled = true;
-            this.maxAttrsDrillListBox.Location = new System.Drawing.Point(771, 105);
+            this.maxAttrsDrillListBox.Location = new System.Drawing.Point(845, 105);
             this.maxAttrsDrillListBox.Name = "maxAttrsDrillListBox";
-            this.maxAttrsDrillListBox.Size = new System.Drawing.Size(101, 303);
+            this.maxAttrsDrillListBox.Size = new System.Drawing.Size(101, 329);
             this.maxAttrsDrillListBox.TabIndex = 3;
             this.maxAttrsDrillListBox.Tag = "";
             this.maxAttrsDrillListBox.DoubleClick += new System.EventHandler(this.maxAttrsDrillListBox_DoubleClick);
@@ -143,13 +152,20 @@ namespace TrainingCalculator
             // drillListView
             // 
             this.drillListView.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.drillListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader23,
+            this.columnHeader24});
+            this.drillListView.GridLines = true;
             this.drillListView.HideSelection = false;
-            this.drillListView.Location = new System.Drawing.Point(12, 106);
+            this.drillListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.drillListView.Location = new System.Drawing.Point(9, 105);
             this.drillListView.Name = "drillListView";
-            this.drillListView.Size = new System.Drawing.Size(144, 303);
+            this.drillListView.Size = new System.Drawing.Size(194, 332);
             this.drillListView.TabIndex = 5;
             this.drillListView.UseCompatibleStateImageBehavior = false;
-            this.drillListView.View = System.Windows.Forms.View.List;
+            this.drillListView.View = System.Windows.Forms.View.Details;
             // 
             // attributesListView
             // 
@@ -170,9 +186,9 @@ namespace TrainingCalculator
             this.attributesListView.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.attributesListView.GridLines = true;
             this.attributesListView.HideSelection = false;
-            this.attributesListView.Location = new System.Drawing.Point(162, 107);
+            this.attributesListView.Location = new System.Drawing.Point(209, 105);
             this.attributesListView.Name = "attributesListView";
-            this.attributesListView.Size = new System.Drawing.Size(600, 301);
+            this.attributesListView.Size = new System.Drawing.Size(630, 303);
             this.attributesListView.TabIndex = 7;
             this.attributesListView.TileSize = new System.Drawing.Size(30, 30);
             this.attributesListView.UseCompatibleStateImageBehavior = false;
@@ -244,10 +260,10 @@ namespace TrainingCalculator
             this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader11.Width = 34;
             // 
-            // listView1
+            // maxAttributesListView
             // 
-            this.listView1.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.maxAttributesListView.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.maxAttributesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader12,
             this.columnHeader13,
             this.columnHeader14,
@@ -259,16 +275,16 @@ namespace TrainingCalculator
             this.columnHeader20,
             this.columnHeader21,
             this.columnHeader22});
-            this.listView1.Enabled = false;
-            this.listView1.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(162, 75);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(600, 26);
-            this.listView1.TabIndex = 8;
-            this.listView1.TileSize = new System.Drawing.Size(30, 30);
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.maxAttributesListView.Enabled = false;
+            this.maxAttributesListView.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.maxAttributesListView.HideSelection = false;
+            this.maxAttributesListView.Location = new System.Drawing.Point(209, 73);
+            this.maxAttributesListView.Name = "maxAttributesListView";
+            this.maxAttributesListView.Size = new System.Drawing.Size(630, 26);
+            this.maxAttributesListView.TabIndex = 8;
+            this.maxAttributesListView.TileSize = new System.Drawing.Size(30, 30);
+            this.maxAttributesListView.UseCompatibleStateImageBehavior = false;
+            this.maxAttributesListView.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader12
             // 
@@ -336,12 +352,34 @@ namespace TrainingCalculator
             this.columnHeader22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader22.Width = 34;
             // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "DRILL ORDER";
+            this.columnHeader23.Width = 160;
+            // 
+            // columnHeader24
+            // 
+            this.columnHeader24.Text = "AQ";
+            this.columnHeader24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader24.Width = 34;
+            // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(856, 440);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(75, 23);
+            this.buttonSort.TabIndex = 9;
+            this.buttonSort.Text = "Sort";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 458);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(958, 493);
+            this.Controls.Add(this.buttonSort);
+            this.Controls.Add(this.maxAttributesListView);
             this.Controls.Add(this.attributesListView);
             this.Controls.Add(this.drillListView);
             this.Controls.Add(this.maxAttrsDrillListBox);
@@ -382,7 +420,7 @@ namespace TrainingCalculator
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView maxAttributesListView;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
@@ -394,6 +432,9 @@ namespace TrainingCalculator
         private System.Windows.Forms.ColumnHeader columnHeader20;
         private System.Windows.Forms.ColumnHeader columnHeader21;
         private System.Windows.Forms.ColumnHeader columnHeader22;
+        private System.Windows.Forms.ColumnHeader columnHeader23;
+        private System.Windows.Forms.ColumnHeader columnHeader24;
+        private System.Windows.Forms.Button buttonSort;
     }
 }
 

@@ -34,11 +34,15 @@ namespace TrainingCalculator
         public Attributes AttributeName { get; set; }
         public Color ColorAttribute { get; set; }
         public double ValueAttribute { get; set; }
+        private readonly double estimatedValue;
+        public double EstimatedValue { get => ValueAttribute - estimatedValue; }
+
         public PlayerAttribute(Attributes name, Color col, double val)
         {
             AttributeName = name;
             ColorAttribute = col;
             ValueAttribute = val;
+            estimatedValue = ValueAttribute;
         }
         public object Clone()
         {
