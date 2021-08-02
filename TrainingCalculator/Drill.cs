@@ -16,6 +16,7 @@ namespace TrainingCalculator
         public int CountAttributes { get; set; }
         public int CountWhite { get; set; }
         public int CountGray { get; set; }
+        public Drill() { }
         public Drill(int index, string name, List<PA> attr)
         {
             DrillIndex = index;
@@ -27,15 +28,25 @@ namespace TrainingCalculator
         }
         public List<PA> FindGrayAttr(List<PA> attr)
         {
-            return new List<PA>(attr.FindAll(
-            delegate (PA pa)
-            {
-                return pa.ColorAttribute == PA.Color.GRAY;
-            }));          
+            return new List<PA>(attr.FindAll(pa => pa.AttributeColor == PA.Color.GRAY));
         }
         public object Clone()
         {
-            return MemberwiseClone();
+            List<PA> list = new List<PA>();
+            DrillAttributes.ForEach((item) =>
+            {
+                list.Add((PA)item.Clone());
+            });
+            return new Drill()
+            {
+                DrillIndex = DrillIndex,
+                DrillName = DrillName,
+                DrillAttributes = list,
+                CountAttributes = list.Count,
+                CountGray = FindGrayAttr(list).Count,
+                CountWhite = CountAttributes - CountGray,
+                MaxAverageDrillQuality = MaxAverageDrillQuality
+            };
         }
         public override bool Equals(object obj)
         {

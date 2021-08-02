@@ -32,25 +32,36 @@ namespace TrainingCalculator
             GRAY
         }
         public Attributes AttributeName { get; set; }
-        public Color ColorAttribute { get; set; }
-        public double ValueAttribute { get; set; }
-        private readonly double estimatedValue;
-        public double EstimatedValue { get => ValueAttribute - estimatedValue; }
-
+        public Color AttributeColor { get; set; }
+        public double AttributeInputValue { get; set; }
+        public double AttributeEstimatedValue { get; set; }
+        //public List<double> EstimatedValue { get; set; }
+        PlayerAttribute() { }
         public PlayerAttribute(Attributes name, Color col, double val)
         {
             AttributeName = name;
-            ColorAttribute = col;
-            ValueAttribute = val;
-            estimatedValue = ValueAttribute;
+            AttributeColor = col;
+            AttributeInputValue = val;
+            AttributeEstimatedValue = AttributeInputValue;
+            //EstimatedValue = new List<double>
+            //{
+            //    AttributeValue
+            //};
         }
         public object Clone()
         {
-            return MemberwiseClone();
-        }
-        public static explicit operator int(PlayerAttribute v)
-        {
-            throw new NotImplementedException();
+            //List<double> list = new List<double>();
+            //EstimatedValue.ForEach((item) =>
+            //{
+            //    list.Add(item);
+            //});
+            return new PlayerAttribute()
+            {
+                AttributeName = AttributeName,
+                AttributeColor = AttributeColor,
+                AttributeInputValue = AttributeInputValue,
+                AttributeEstimatedValue = AttributeEstimatedValue
+            };
         }
     }
 }

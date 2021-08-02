@@ -62,27 +62,34 @@ namespace TrainingCalculator
             }
         }
         private void maxAttrsDrillListBox_DoubleClick(object sender, EventArgs e)
-        {
+        {          
             int n = maxAttrsDrillListBox.SelectedIndex;
             if (n >= 0)
             {
-                drillListView.Items.Clear();
-                foreach (var item in ResultCalculationAttributes.MaxAttrsDrill[n])
-                {
-                    ListViewItem lvi = new ListViewItem(item.DrillName);
-                    lvi.SubItems.Add(item.MaxAverageDrillQuality.ToString());
-                    drillListView.Items.Add(lvi);
-                }
-                maxAttributesListView.Columns.Clear();
+                maxAttributesListView.Columns.Clear();                
                 foreach (var item in ResultCalculationAttributes.MaxAttrs)
                 {
                     maxAttributesListView.Columns.Add(item.ToString(), 40, HorizontalAlignment.Center);
                 }
-                attributesListView.Columns.Clear();
+                int i = 2;
                 foreach (var item in ResultCalculationAttributes.MaxAttrsList[n])
+                {                   
+                    attributesListView.Columns[i++].Text = item.AttributeEstimatedValue.ToString();
+                }
+                attributesListView.Items.Clear();
+                int j = 0;
+                foreach (var item in ResultCalculationAttributes.MaxAttrsDrill[n])
                 {
-                    attributesListView.Columns.Add(item.ValueAttribute.ToString(), 40, HorizontalAlignment.Center);
-                }                
+                    ListViewItem lvi = new ListViewItem(item.DrillName)
+                    {
+                        Font = new Font(Font, FontStyle.Regular)
+                    };                    
+                    lvi.SubItems.Add(item.MaxAverageDrillQuality.ToString());
+                    double[] arr = ResultCalculationAttributes.EstimatedValueList[n][j++];
+                    foreach (var val in arr)
+                        lvi.SubItems.Add(val.ToString());
+                    attributesListView.Items.Add(lvi);
+                }
             }
             else
             {

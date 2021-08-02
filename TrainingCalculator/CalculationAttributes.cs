@@ -23,6 +23,7 @@ namespace TrainingCalculator
         const int maxValueAttribute = 180;
         readonly List<List<Drill>> maxAttrsDrill = new List<List<Drill>>();
         readonly List<List<PA>> maxAttrsList = new List<List<PA>>();
+        readonly List<List<double[]>> estimatedValueList = new List<List<double[]>>();
         public CalculationAttributes(){}
         public CalculationAttributes(List<PA> attr)
         {
@@ -33,6 +34,8 @@ namespace TrainingCalculator
         public List<List<PA>> MaxAttrsList { get => maxAttrsList; }
         public double[] MaxAttrs { get; } = new double[15];
         public int MaxGrayAttrVal { get; set; } = 60;
+        public List<List<double[]>> EstimatedValueList { get => estimatedValueList; }
+
         private void Swap(List<Drill> list, int i , int j)
         {
             Drill temp;
@@ -41,41 +44,41 @@ namespace TrainingCalculator
             list[j] = temp;
         }
         ////// Permutations without repetitions //////
-        public void SwapDrill(List<Drill> list, ref int index)
+        public void SwapDrill(List<Drill> listDrill, ref int index)
         {
             //The task of generating permutations in lexicographic order. 
             //In this case, all permutations are sorted first by the first number, then by the second, etc.in ascending order. 
             //Thus, the first one will be the permutation 1 2... N, and the last one will be N N-1... 1.
-            int n = list.Count();
+            int n = listDrill.Count();
             if (n>1)
             {
                 int i = n - 2;
-                while (i!=-1 && list[i].DrillIndex >= list[i + 1].DrillIndex)
+                while (i!=-1 && listDrill[i].DrillIndex >= listDrill[i + 1].DrillIndex)
                     i--;
                 if (i==-1)
                     return;
                 int j = n - 1;
-                while (list[i].DrillIndex >= list[j].DrillIndex)
+                while (listDrill[i].DrillIndex >= listDrill[j].DrillIndex)
                     j--;
-                Swap(list, i, j);
+                Swap(listDrill, i, j);
                 int l = i + 1;
                 int r = n - 1;
                 int count = r - l;
                 if (count > 0)
-                    list.Reverse(l, count + 1);
-                if (index==0 || index > i)
+                    listDrill.Reverse(l, count + 1);
+                if (index == 0 || index > i)
                     index = i;
             }            
         }
-        private void CmpMaxAttrsList(List<PA> listAttributes, List<Drill>  listDrill)
+        private void CmpMaxAttrsList(List<PA> listAttributes, List<Drill> listDrill, List<double[]> estList)
         {
             bool add = false;
             for (int i = 0; i < listAttributes.Count; i++)
             {
-                if (listAttributes[i].ColorAttribute == PA.Color.WHITE && 
-                    listAttributes[i].ValueAttribute > MaxAttrs[i])
+                if (listAttributes[i].AttributeColor == PA.Color.WHITE &&
+                    listAttributes[i].AttributeEstimatedValue > MaxAttrs[i])
                 {
-                    MaxAttrs[i] = listAttributes[i].ValueAttribute;
+                    MaxAttrs[i] = listAttributes[i].AttributeEstimatedValue;
                     add = true;
                 }
             }
@@ -83,11 +86,12 @@ namespace TrainingCalculator
             {
                 MaxAttrsList.Add(listAttributes.ConvertAll(attr => (PA)attr.Clone()));
                 MaxAttrsDrill.Add(listDrill.ConvertAll(drill => (Drill)drill.Clone()));
+                EstimatedValueList.Add(estList.ConvertAll(item => (double[])item.Clone()));
             }
         }
         private bool CheackMaxVal(List<PA> listGrayAttr)
         {           
-            return !listGrayAttr.Exists(x => x.ValueAttribute >= MaxGrayAttrVal);
+            return !listGrayAttr.Exists(x => x.AttributeEstimatedValue >= MaxGrayAttrVal);
         }                     
         private void InitMaxAverageDrillQuality(Drill drill, double sum, bool ga)
         {
@@ -105,10 +109,11 @@ namespace TrainingCalculator
         {
             double sum = 0;
             foreach (var item in arrPA)
-                sum += item.ValueAttribute;    
+                sum += item.AttributeEstimatedValue;    
             return sum;
         }
-        public void IncreasePlayerAttribute(List<PA> tempList, List<List<PA>> increasedPAList, List<Drill> listDrill, int index)
+        public void IncreasePlayerAttribute(
+            List<PA> listAttributes, List<Drill> listDrill, List<List<PA>> increasedPAList, List<double[]> estList, int index)
         {
             for (int i = index; i < listDrill.Count; i++)
             {
@@ -122,38 +127,48 @@ namespace TrainingCalculator
                 {
                     foreach (var item in listDrill[i].DrillAttributes)
                     {
-                        if (item.ColorAttribute == PA.Color.WHITE)
+                        if (item.AttributeColor == PA.Color.WHITE)
                         {
-                            ++item.ValueAttribute;
+                            ++item.AttributeEstimatedValue;
                             ++sumAttributes;
+                            
                         }
                         else
                         {
-                            item.ValueAttribute += 0.5;
+                            item.AttributeEstimatedValue += 0.5;
                             sumAttributes += 0.5;
                         }
                     }
                 }
+                double[] arr= new double[listAttributes.Count];
+                foreach (var item in listDrill[i].DrillAttributes)
+                {
+                    double sum = 0;
+                    foreach (var list in estList)
+                        sum += list[(int)item.AttributeName];
+                    arr[(int)item.AttributeName] = item.AttributeEstimatedValue - item.AttributeInputValue - sum ;
+                }
+                estList.Add(arr);
                 InitMaxAverageDrillQuality(listDrill[i], sumAttributes, checkGreyA);
                 if (index == 0)
-                    increasedPAList.Add(tempList.ConvertAll(attr => (PA)attr.Clone()));
+                    increasedPAList.Add(listAttributes.ConvertAll(attr => (PA)attr.Clone()));
             }
         }
-        public void MakeTrainingProgram(List<PA> startList, out List<Drill> listDrill)
+        public void MakeTrainingProgram(List <PA> startList, out List<Drill> listDrill)
         {
             List<Drill> list = new List<Drill>
             {                             
                 new Drill(1, "PASS_GO_AND_SHOOT", new List<PA>() 
-                { 
+                {
                     startList[(int)PA.Attributes.Passing],
                     startList[(int)PA.Attributes.Shooting],
                     startList[(int)PA.Attributes.Speed]
                 }),
                 new Drill(2, "FAST_COUNTER_ATTACKS", new List<PA>() 
                 {
-                    startList[(int)PA.Attributes.Passing], 
-                    startList[(int)PA.Attributes.Crossing], 
-                    startList[(int)PA.Attributes.Finishing], 
+                    startList[(int)PA.Attributes.Passing],
+                    startList[(int)PA.Attributes.Crossing],
+                    startList[(int)PA.Attributes.Finishing],
                     startList[(int)PA.Attributes.Creativity]
                 }),
                 new Drill(3, "SKILL_DRILL", new List<PA>()
@@ -254,7 +269,7 @@ namespace TrainingCalculator
                 //PAAttr[] SHUTTLE_RUNS = { PAAttr.Bravery, PAAttr.Strength, PAAttr.Speed };
                 //PAAttr[] HURDLE_JUMPS = { PAAttr.Bravery, PAAttr.Aggression, PAAttr.Speed };
             };
-            listDrill = list;          
+            listDrill = list;
         }
         //public void MakeTrainingProgram2(List<PA> startList, out List<Drill> listDrill)
         //{
@@ -373,8 +388,16 @@ namespace TrainingCalculator
         //    };
         //    listDrill = list;
         //}
+        //public struct CalculationStruct
+        //{
+        //    public int Index { get; set; }
+        //    public List<PA> ListAttributes { get; set; }
+        //    public List<Drill> ListDrill { get; set; }
+        //    public List<List<PA>> IncreasedPAList { get; set; }
+        //}
         public CalculationAttributes Calculation()
         {
+            #region parallel
             //Stopwatch stopWatchCalcAttr = Stopwatch.StartNew();
             //Parallel.Invoke(
             //        () =>
@@ -501,13 +524,14 @@ namespace TrainingCalculator
             //        });
             //stopWatchCalcAttr.Stop();
             //MessageBox.Show(stopWatchCalcAttr.Elapsed.ToString());
+            #endregion
 
-            List<PA> tempList = new List<PA>();
+            List<PA> listAttributes = new List<PA>();            
             ListAttributes.ForEach((item) =>
             {
-                tempList.Add((PA)item.Clone());
+                listAttributes.Add((PA)item.Clone());
             });
-            MakeTrainingProgram(tempList, out List<Drill> listDrill);
+            MakeTrainingProgram(listAttributes, out List<Drill> listDrill);           
             if (listDrill.Count != 0)
             {
                 //The number of permutations for N different elements is N!
@@ -519,8 +543,9 @@ namespace TrainingCalculator
                 //and start from the place where the permutation was.    
                 List<List<PA>> increasedPAList = new List<List<PA>>
                 {
-                    tempList.ConvertAll(attr => (PA)attr.Clone())
+                    listAttributes.ConvertAll(attr => (PA)attr.Clone())
                 };
+                List<double[]> estimatedValueList = new List<double[]>();
                 int index = 0;
                 //CalculationAttributesEventArgs e = new CalculationAttributesEventArgs
                 //{
@@ -528,13 +553,14 @@ namespace TrainingCalculator
                 //};
                 //ProgressBarMax?.Invoke(this, e);
                 Stopwatch stopWatchCalcAttr = Stopwatch.StartNew();
-
                 for (BigInteger i = 0; i < countIterations; i++)
                 {
                     int j = 0;
-                    tempList.ForEach(item => item.ValueAttribute = increasedPAList[index][j++].ValueAttribute);
-                    IncreasePlayerAttribute(tempList, increasedPAList, listDrill, index);
-                    CmpMaxAttrsList(tempList, listDrill);
+                    listAttributes.ForEach(
+                        item => item.AttributeEstimatedValue = increasedPAList[index][j++].AttributeEstimatedValue);
+                    estimatedValueList.RemoveRange(index, estimatedValueList.Count - index);
+                    IncreasePlayerAttribute(listAttributes, listDrill, increasedPAList, estimatedValueList, index);
+                    CmpMaxAttrsList(listAttributes, listDrill, estimatedValueList);
                     SwapDrill(listDrill, ref index);
                     if (index == 0)
                         increasedPAList.RemoveRange(1, increasedPAList.Count - 1);

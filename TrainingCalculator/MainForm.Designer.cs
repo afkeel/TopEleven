@@ -29,12 +29,6 @@ namespace TrainingCalculator
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Aasfsdgsdg",
-            "180"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Adsafgsgh",
-            "150"}, -1);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -44,19 +38,25 @@ namespace TrainingCalculator
             this.buttonInputData = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.maxAttrsDrillListBox = new System.Windows.Forms.ListBox();
-            this.drillListView = new System.Windows.Forms.ListView();
             this.attributesListView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDrillOrder = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAQ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTackling = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderMarking = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPositioning = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderHeading = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderBravery = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPassing = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDribling = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCrossing = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderShooting = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderFinishing = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderFitness = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderStrength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAggression = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderSpeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCreativity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderOverallQuality = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.maxAttributesListView = new System.Windows.Forms.ListView();
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,8 +69,6 @@ namespace TrainingCalculator
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonSort = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +80,7 @@ namespace TrainingCalculator
             this.aToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(958, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(978, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,135 +132,179 @@ namespace TrainingCalculator
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(209, 414);
+            this.progressBar1.Location = new System.Drawing.Point(12, 414);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(630, 23);
+            this.progressBar1.Size = new System.Drawing.Size(840, 23);
             this.progressBar1.TabIndex = 2;
             // 
             // maxAttrsDrillListBox
             // 
             this.maxAttrsDrillListBox.FormattingEnabled = true;
-            this.maxAttrsDrillListBox.Location = new System.Drawing.Point(845, 105);
+            this.maxAttrsDrillListBox.Location = new System.Drawing.Point(863, 105);
             this.maxAttrsDrillListBox.Name = "maxAttrsDrillListBox";
-            this.maxAttrsDrillListBox.Size = new System.Drawing.Size(101, 329);
+            this.maxAttrsDrillListBox.Size = new System.Drawing.Size(88, 329);
             this.maxAttrsDrillListBox.TabIndex = 3;
             this.maxAttrsDrillListBox.Tag = "";
             this.maxAttrsDrillListBox.DoubleClick += new System.EventHandler(this.maxAttrsDrillListBox_DoubleClick);
             // 
-            // drillListView
-            // 
-            this.drillListView.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.drillListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader23,
-            this.columnHeader24});
-            this.drillListView.GridLines = true;
-            this.drillListView.HideSelection = false;
-            this.drillListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.drillListView.Location = new System.Drawing.Point(9, 105);
-            this.drillListView.Name = "drillListView";
-            this.drillListView.Size = new System.Drawing.Size(194, 332);
-            this.drillListView.TabIndex = 5;
-            this.drillListView.UseCompatibleStateImageBehavior = false;
-            this.drillListView.View = System.Windows.Forms.View.Details;
-            // 
             // attributesListView
             // 
-            this.attributesListView.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             this.attributesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11});
-            this.attributesListView.Enabled = false;
+            this.columnHeaderDrillOrder,
+            this.columnHeaderAQ,
+            this.columnHeaderTackling,
+            this.columnHeaderMarking,
+            this.columnHeaderPositioning,
+            this.columnHeaderHeading,
+            this.columnHeaderBravery,
+            this.columnHeaderPassing,
+            this.columnHeaderDribling,
+            this.columnHeaderCrossing,
+            this.columnHeaderShooting,
+            this.columnHeaderFinishing,
+            this.columnHeaderFitness,
+            this.columnHeaderStrength,
+            this.columnHeaderAggression,
+            this.columnHeaderSpeed,
+            this.columnHeaderCreativity,
+            this.columnHeaderOverallQuality});
             this.attributesListView.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.attributesListView.GridLines = true;
             this.attributesListView.HideSelection = false;
-            this.attributesListView.Location = new System.Drawing.Point(209, 105);
+            this.attributesListView.Location = new System.Drawing.Point(12, 105);
             this.attributesListView.Name = "attributesListView";
-            this.attributesListView.Size = new System.Drawing.Size(630, 303);
+            this.attributesListView.Size = new System.Drawing.Size(845, 303);
             this.attributesListView.TabIndex = 7;
-            this.attributesListView.TileSize = new System.Drawing.Size(30, 30);
             this.attributesListView.UseCompatibleStateImageBehavior = false;
             this.attributesListView.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // columnHeaderDrillOrder
             // 
-            this.columnHeader1.Tag = "";
-            this.columnHeader1.Text = "50";
-            this.columnHeader1.Width = 34;
+            this.columnHeaderDrillOrder.Tag = "DrillOrder";
+            this.columnHeaderDrillOrder.Text = "DRILL ORDER";
+            this.columnHeaderDrillOrder.Width = 160;
             // 
-            // columnHeader2
+            // columnHeaderAQ
             // 
-            this.columnHeader2.Text = "60";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 34;
+            this.columnHeaderAQ.Tag = "AQ";
+            this.columnHeaderAQ.Text = "AQ";
+            this.columnHeaderAQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderAQ.Width = 40;
             // 
-            // columnHeader3
+            // columnHeaderTackling
             // 
-            this.columnHeader3.Text = "100";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 34;
+            this.columnHeaderTackling.Tag = "Tackling";
+            this.columnHeaderTackling.Text = "";
+            this.columnHeaderTackling.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderTackling.Width = 40;
             // 
-            // columnHeader4
+            // columnHeaderMarking
             // 
-            this.columnHeader4.Text = "120";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 34;
+            this.columnHeaderMarking.Tag = "Marking";
+            this.columnHeaderMarking.Text = "";
+            this.columnHeaderMarking.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderMarking.Width = 40;
             // 
-            // columnHeader5
+            // columnHeaderPositioning
             // 
-            this.columnHeader5.Text = "356";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 34;
+            this.columnHeaderPositioning.Tag = "Positioning";
+            this.columnHeaderPositioning.Text = "";
+            this.columnHeaderPositioning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderPositioning.Width = 40;
             // 
-            // columnHeader6
+            // columnHeaderHeading
             // 
-            this.columnHeader6.Text = "45";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 34;
+            this.columnHeaderHeading.Tag = "Heading";
+            this.columnHeaderHeading.Text = "";
+            this.columnHeaderHeading.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderHeading.Width = 40;
             // 
-            // columnHeader7
+            // columnHeaderBravery
             // 
-            this.columnHeader7.Text = "152";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 34;
+            this.columnHeaderBravery.Tag = "Bravery";
+            this.columnHeaderBravery.Text = "";
+            this.columnHeaderBravery.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderBravery.Width = 40;
             // 
-            // columnHeader8
+            // columnHeaderPassing
             // 
-            this.columnHeader8.Text = "56";
-            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader8.Width = 34;
+            this.columnHeaderPassing.Tag = "Passing";
+            this.columnHeaderPassing.Text = "";
+            this.columnHeaderPassing.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderPassing.Width = 40;
             // 
-            // columnHeader9
+            // columnHeaderDribling
             // 
-            this.columnHeader9.Text = "352";
-            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader9.Width = 34;
+            this.columnHeaderDribling.Tag = "Dribling";
+            this.columnHeaderDribling.Text = "";
+            this.columnHeaderDribling.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderDribling.Width = 40;
             // 
-            // columnHeader10
+            // columnHeaderCrossing
             // 
-            this.columnHeader10.Text = "156";
-            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader10.Width = 34;
+            this.columnHeaderCrossing.Tag = "Crossing";
+            this.columnHeaderCrossing.Text = "";
+            this.columnHeaderCrossing.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderCrossing.Width = 40;
             // 
-            // columnHeader11
+            // columnHeaderShooting
             // 
-            this.columnHeader11.Text = "356";
-            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader11.Width = 34;
+            this.columnHeaderShooting.Tag = "Shooting";
+            this.columnHeaderShooting.Text = "";
+            this.columnHeaderShooting.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderShooting.Width = 40;
+            // 
+            // columnHeaderFinishing
+            // 
+            this.columnHeaderFinishing.Tag = "Finishing";
+            this.columnHeaderFinishing.Text = "";
+            this.columnHeaderFinishing.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderFinishing.Width = 40;
+            // 
+            // columnHeaderFitness
+            // 
+            this.columnHeaderFitness.Tag = "Fitness";
+            this.columnHeaderFitness.Text = "";
+            this.columnHeaderFitness.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderFitness.Width = 40;
+            // 
+            // columnHeaderStrength
+            // 
+            this.columnHeaderStrength.Tag = "Strength";
+            this.columnHeaderStrength.Text = "";
+            this.columnHeaderStrength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderStrength.Width = 40;
+            // 
+            // columnHeaderAggression
+            // 
+            this.columnHeaderAggression.Tag = "Aggression";
+            this.columnHeaderAggression.Text = "";
+            this.columnHeaderAggression.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderAggression.Width = 40;
+            // 
+            // columnHeaderSpeed
+            // 
+            this.columnHeaderSpeed.Tag = "Speed";
+            this.columnHeaderSpeed.Text = "";
+            this.columnHeaderSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderSpeed.Width = 40;
+            // 
+            // columnHeaderCreativity
+            // 
+            this.columnHeaderCreativity.Tag = "Creativity";
+            this.columnHeaderCreativity.Text = "";
+            this.columnHeaderCreativity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderCreativity.Width = 40;
+            // 
+            // columnHeaderOverallQuality
+            // 
+            this.columnHeaderOverallQuality.Tag = "OQ";
+            this.columnHeaderOverallQuality.Text = "";
+            this.columnHeaderOverallQuality.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeaderOverallQuality.Width = 40;
             // 
             // maxAttributesListView
             // 
-            this.maxAttributesListView.Alignment = System.Windows.Forms.ListViewAlignment.Default;
             this.maxAttributesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader12,
             this.columnHeader13,
@@ -275,14 +317,12 @@ namespace TrainingCalculator
             this.columnHeader20,
             this.columnHeader21,
             this.columnHeader22});
-            this.maxAttributesListView.Enabled = false;
             this.maxAttributesListView.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.maxAttributesListView.HideSelection = false;
-            this.maxAttributesListView.Location = new System.Drawing.Point(209, 73);
+            this.maxAttributesListView.Location = new System.Drawing.Point(212, 73);
             this.maxAttributesListView.Name = "maxAttributesListView";
-            this.maxAttributesListView.Size = new System.Drawing.Size(630, 26);
+            this.maxAttributesListView.Size = new System.Drawing.Size(645, 26);
             this.maxAttributesListView.TabIndex = 8;
-            this.maxAttributesListView.TileSize = new System.Drawing.Size(30, 30);
             this.maxAttributesListView.UseCompatibleStateImageBehavior = false;
             this.maxAttributesListView.View = System.Windows.Forms.View.Details;
             // 
@@ -352,20 +392,9 @@ namespace TrainingCalculator
             this.columnHeader22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader22.Width = 34;
             // 
-            // columnHeader23
-            // 
-            this.columnHeader23.Text = "DRILL ORDER";
-            this.columnHeader23.Width = 160;
-            // 
-            // columnHeader24
-            // 
-            this.columnHeader24.Text = "AQ";
-            this.columnHeader24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader24.Width = 34;
-            // 
             // buttonSort
             // 
-            this.buttonSort.Location = new System.Drawing.Point(856, 440);
+            this.buttonSort.Location = new System.Drawing.Point(871, 458);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(75, 23);
             this.buttonSort.TabIndex = 9;
@@ -377,11 +406,10 @@ namespace TrainingCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 493);
+            this.ClientSize = new System.Drawing.Size(978, 502);
             this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.maxAttributesListView);
             this.Controls.Add(this.attributesListView);
-            this.Controls.Add(this.drillListView);
             this.Controls.Add(this.maxAttrsDrillListBox);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.buttonInputData);
@@ -405,21 +433,20 @@ namespace TrainingCalculator
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutAProgramToolStripMenuItem;
         private System.Windows.Forms.Button buttonInputData;
-        private System.Windows.Forms.ListView drillListView;
         private System.Windows.Forms.ListView attributesListView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeaderDrillOrder;
+        private System.Windows.Forms.ColumnHeader columnHeaderAQ;
+        private System.Windows.Forms.ColumnHeader columnHeaderTackling;
+        private System.Windows.Forms.ColumnHeader columnHeaderMarking;
+        private System.Windows.Forms.ColumnHeader columnHeaderPositioning;
         public System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ListBox maxAttrsDrillListBox;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeaderHeading;
+        private System.Windows.Forms.ColumnHeader columnHeaderBravery;
+        private System.Windows.Forms.ColumnHeader columnHeaderPassing;
+        private System.Windows.Forms.ColumnHeader columnHeaderDribling;
+        private System.Windows.Forms.ColumnHeader columnHeaderCrossing;
+        private System.Windows.Forms.ColumnHeader columnHeaderShooting;
         private System.Windows.Forms.ListView maxAttributesListView;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
@@ -432,9 +459,14 @@ namespace TrainingCalculator
         private System.Windows.Forms.ColumnHeader columnHeader20;
         private System.Windows.Forms.ColumnHeader columnHeader21;
         private System.Windows.Forms.ColumnHeader columnHeader22;
-        private System.Windows.Forms.ColumnHeader columnHeader23;
-        private System.Windows.Forms.ColumnHeader columnHeader24;
         private System.Windows.Forms.Button buttonSort;
+        private System.Windows.Forms.ColumnHeader columnHeaderFinishing;
+        private System.Windows.Forms.ColumnHeader columnHeaderFitness;
+        private System.Windows.Forms.ColumnHeader columnHeaderStrength;
+        private System.Windows.Forms.ColumnHeader columnHeaderAggression;
+        private System.Windows.Forms.ColumnHeader columnHeaderSpeed;
+        private System.Windows.Forms.ColumnHeader columnHeaderCreativity;
+        private System.Windows.Forms.ColumnHeader columnHeaderOverallQuality;
     }
 }
 
